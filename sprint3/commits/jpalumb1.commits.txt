@@ -1,0 +1,183 @@
+$ git blame CalCount.js | grep jpalumbo64
+d48619c3 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:29:27 -0500  86)     }
+d48619c3 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:29:27 -0500  87)
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500  90)   const data={
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500  91)     gender: gender,
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500  92)     age: age,
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500  93)     height: height,
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500  94)     weight: weightInLbs,
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500  95)     goal: calories
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500  96)   }
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500  97)
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500  98)   fetch('/CalorieCalculator', {
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500  99)     method: 'POST',
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500 100)     headers: {
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500 101)       'Content-Type': 'application/json',
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500 102)     },
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500 103)     body: (data),
+58eced88 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:39:45 -0500 104)   })
+d48619c3 workingDirectory/client/src/CalCount.js (jpalumbo64    2023-11-13 20:29:27 -0500 105)
+
+$ git blame index.js | grep jpalumbo64
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  53)
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  54)     const UserinfoSchema = new mongoose.Schema({
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  55)         gender:{
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  56)             type:String,
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  57)             required:true
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  58)         },
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  59)         age:{
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  60)             type:Number,
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  61)             required:true
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  62)         },
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  63)         height:{
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  64)             type:Number,
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  65)             required:true
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  66)         },
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  67)         weight:{
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  68)             type:Number,
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  69)             required:true
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  70)         },
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  71)         goal:{
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  72)             type:Number,
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  73)             required:true
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  74)         }
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  75)     })
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500  78)     const userInfo = mongoose.model('userInfo', LogInSchema)
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 145) app.post('/CalorieCalculator', async (req,res)=>{
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 146)     try{
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 147)         const data={
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 148)             gender: req.body.gender,
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 149)             age: req.body.age,
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 150)             height: req.body.height,
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 151)             weight: req.body.weight,
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 152)             goal: req.body.goal
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 153)         }
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 154)
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 155)
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 156)
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 157)         const userdata = await userInfo.insertMany(data)
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 158)         console.log(userdata)
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 159)         res.status(200).json({ message: 'calorie data stored successfully' })
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 160)
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 161)
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 162)     }
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 163)     catch{
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 164)         res.status(401).json({ message: 'calorie info failed' });
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 165)     }
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 166)
+d48619c3 (jpalumbo64  2023-11-13 20:29:27 -0500 167) })
+
+$ git blame home.js | grep jpalumbo64
+3ddfc0fc (jpalumbo64     2023-11-12 20:53:03 -0500 16)             <li><a href="/CalorieCalculator">Calorie Calculator</a></li>
+3df1b071 (jpalumbo64     2023-11-13 21:44:14 -0500 17)             <li><a href="/runAnalyzer">Run Analyzer</a></li>
+
+$ git blame App.js | grep jpalumbo64
+3ddfc0fc (jpalumbo64     2023-11-12 20:53:03 -0500 13) import CalorieCalculator from './CalCount.js'
+3df1b071 (jpalumbo64     2023-11-13 21:44:14 -0500 20) import RunAnalyzer from './runAnalyzer.jsx';
+3ddfc0fc (jpalumbo64     2023-11-12 20:53:03 -0500 36)         <Route path="/CalorieCalculator" element={<CalorieCalculator />} />
+3df1b071 (jpalumbo64     2023-11-13 21:44:14 -0500 43)         <Route path='/runAnalyzer' element={<RunAnalyzer />} />
+
+$ git blame runAnalyzer.jsx | grep jpalumbo64
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500   1) // src/RunAnalyzer.js
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500   2) import React, { useState } from 'react';
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500   3)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500   4) const RunAnalyzer = () => {
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500   5)   const [runData, setRunData] = useState({
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500   6)     // Sample run data, replace with your actual data
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500   7)     distance: 6.2, // Assuming initial distance is in miles
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500   8)     duration: '00:30:00',
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500   9)     date: '2023-11-13',
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  10)     // Add more data fields as needed
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  11)   });
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  12)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  13)   const [analysisResult, setAnalysisResult] = useState(null);
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  14)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  15)   const handleInputChange = (event) => {
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  16)     const { name, value } = event.target;
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  17)     setRunData({
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  18)       ...runData,
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  19)       [name]: value,
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  20)     });
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  21)   };
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  22)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  23)   const handleSubmit = (event) => {
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  24)     event.preventDefault();
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  25)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  26)     // Analyze pace (time per mile)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  27)     const durationInSeconds = calculateDurationInSeconds(runData.duration);
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  28)     const pacePerMile = durationInSeconds / runData.distance;
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  29)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  30)     // Assuming a simple calorie calculation based on distance
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  31)     const caloriesBurned = calculateCaloriesBurned(runData.distance);
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  32)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  33)     setAnalysisResult({
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  34)       pace: formatPace(pacePerMile),
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  35)       caloriesBurned: caloriesBurned.toFixed(2),
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  36)     });
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  37)   };
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  38)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  39)   const calculateDurationInSeconds = (duration) => {
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  40)     const [hours, minutes, seconds] = duration.split(':');
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  41)     return parseInt(hours, 10) * 3600 + parseInt(minutes, 10) * 60 + parseInt(seconds, 10);
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  42)   };
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  43)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  44)   const calculateCaloriesBurned = (distance) => {
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  45)     // Replace this with your actual calorie calculation logic
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  46)     // This is just a simple example
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  47)     return distance * 100; // 100 calories per mile
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  48)   };
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  49)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  50)   const formatPace = (paceInSeconds) => {
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  51)     const minutes = Math.floor(paceInSeconds / 60);
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  52)     const seconds = paceInSeconds % 60;
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  53)     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds.toFixed(0)}`;
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  54)   };
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  55)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  56)   return (
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  57)     <div>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  58)       <h1>Run Analyzer</h1>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  59)       <form onSubmit={handleSubmit}>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  60)         <div>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  61)           <label>Date:</label>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  62)           <input
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  63)             type="date"
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  64)             name="date"
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  65)             value={runData.date}
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  66)             onChange={handleInputChange}
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  67)           />
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  68)         </div>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  69)         <div>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  70)           <label>Distance (miles):</label>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  71)           <input
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  72)             type="number"
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  73)             name="distance"
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  74)             value={runData.distance}
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  75)             onChange={handleInputChange}
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  76)           />
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  77)         </div>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  78)         <div>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  79)           <label>Duration:</label>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  80)           <input
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  81)             type="text"
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  82)             name="duration"
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  83)             value={runData.duration}
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  84)             onChange={handleInputChange}
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  85)           />
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  86)         </div>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  87)         <button type="submit">Submit</button>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  88)       </form>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  89)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  90)       {analysisResult && (
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  91)         <div>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  92)           <h2>Analysis Results</h2>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  93)           <p>Pace: {analysisResult.pace} per mile</p>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  94)           <p>Calories Burned: {analysisResult.caloriesBurned} calories</p>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  95)         </div>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  96)       )}
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  97)     </div>
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  98)   );
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500  99) };
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500 100)
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500 101) export default RunAnalyzer;
+3df1b071 (jpalumbo64 2023-11-13 21:44:14 -0500 102)
+

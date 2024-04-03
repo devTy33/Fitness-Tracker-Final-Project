@@ -1,0 +1,123 @@
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  1) import React from 'react';
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  2) 
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  3) function ImageDisplay() {
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  4)   const pageStyle = {
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400  5)     //Formatting for the title of the page to be centered, size, and have a grey background
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  6)     backgroundColor: '#f0f0f0', // Grey color
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400  7)     minHeight: '100vh', 
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  8)     display: 'flex',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  9)     flexDirection: 'column',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 10)     alignItems: 'center',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 11)     justifyContent: 'center',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 12)   };
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 13)
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 14)   const gridContainerStyle = {
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 15)     //Used to create a grid style for the muscle groups and the formatting for them
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 16)     display: 'grid',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 17)     gridTemplateColumns: 'repeat(2, 1fr)',
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 18)     gridGap: '20px',
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 19)     padding: '20px',
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 20)     backgroundColor: 'white',
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 21)     borderRadius: '8px',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 22)   };
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 23)
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 24)   const imageStyle = {
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 25)     //Formatting for the pictures (width, height, curved corners)
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 26)     width: '100%',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 27)     height: 'auto',
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 28)     borderRadius: '8px',
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 29)     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 30)   };
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 31)
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 32)   const titleStyle = {
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 33)     //Formatting for the titles above the images
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 34)     textAlign: 'center',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 35)     fontSize: '2.0rem',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 36)     margin: '10px 0',
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 37)   };
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 38)
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 39)   //.js for the output of all of the images and titles. This is where the words
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 40)   //for the images are shown above the images and how the images are shown. 
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 41)   //I have the "connection" between the gallery page and the exercise pages,
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 42)   //however, it is not working because it only shows the code of the page   
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 43)   //instead of loading the file.
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 44)   return (
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 45)     <div style={pageStyle}>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 46)       <h1 style={{ textAlign: 'center', fontSize: '2rem' }}>Fitness Gallery</h1>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 47)       <div style={gridContainerStyle}>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 48)         <div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 49)           <h2 style={titleStyle}>Legs</h2>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 50)           <img src="/legs.jpg" alt="Legs" style={imageStyle} />
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 51)         </div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 52)         <div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 53)           <h2 style={titleStyle}>Arms</h2>
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 54)           <a href="/main2.jsx"> {/* Link to the desired page */}
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 55)           <img src="/arms.jpg" alt="Arms" style={imageStyle} />
+0a0ceae6 (grandalexbo 2023-10-29 22:08:59 -0400 56)           </a>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 57)         </div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 58)         <div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 59)           <h2 style={titleStyle}>Chest</h2>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 60)           <img src="/chest.jpg" alt="Chest" style={imageStyle} />
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 61)         </div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 62)         <div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 63)           <h2 style={titleStyle}>Back</h2>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 64)           <img src="/back.jpg" alt="Back" style={imageStyle} />
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 65)         </div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 66)         <div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 67)           <h2 style={titleStyle}>Abs</h2>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 68)           <img src="/abs.jpg" alt="Abs" style={imageStyle} />
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 69)         </div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 70)         <div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 71)           <h2 style={titleStyle}>Shoulders</h2>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 72)           <img src="/shoulder.jpg" alt="Shoulders" style={imageStyle} />    
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 73)         </div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 74)       </div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 75)     </div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 76)   );
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 77) }
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 78)
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 79) export default ImageDisplay;
+
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  1) import React from 'react';
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  2) import ImageDisplay from './ImageDisplay';
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  3)
+26442cc8 (Ty Anderson 2023-10-28 15:44:09 -0500  4) function Gallery() {
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  5)   return (
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  6)     <div className="exPage">
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  7)       <ImageDisplay />
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  8)     </div>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400  9)   );
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 10) }
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 11)
+26442cc8 (Ty Anderson 2023-10-28 15:44:09 -0500 12) export default Gallery;
+Ty changed the name of the function.
+
+97e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 1) import React from 'react'
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 2) import ReactDOM from 'react-dom/client'
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 3) import App from '/src/exPage.jsx'
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 4)
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 5) ReactDOM.createRoot(document.getElementById('root')).render(
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 6)   <React.StrictMode>
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 7)     <App />
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 8)   </React.StrictMode>,
+297e6f92 (grandalexbo 2023-10-26 19:24:27 -0400 9) )
+
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400  1) // In your App.js or a separate routing file
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400  2) import React from 'react';
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400  3) import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400  4)
+00000000 (Not Committed Yet 2023-10-30 14:30:08 -0400  5) import ImageDisplay from './src/ImageDisplay.jsx';
+00000000 (Not Committed Yet 2023-10-30 14:30:08 -0400  6) import appExercise from './App.jsx';
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400  7)
+00000000 (Not Committed Yet 2023-10-30 14:30:08 -0400  8) function galleryConnection() {
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400  9)   return (
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400 10)     <Router>
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400 11)       <Switch>
+00000000 (Not Committed Yet 2023-10-30 14:30:08 -0400 12)         <Route path="/ImageDisplay" exact component={ImageDisplay} /> 
+00000000 (Not Committed Yet 2023-10-30 14:30:08 -0400 13)         <Route path="/App" component={appExercise} />
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400 14)       </Switch>
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400 15)     </Router>
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400 16)   );
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400 17) }
+ef65da78 (grandalexbo       2023-10-29 22:10:39 -0400 18)
+00000000 (Not Committed Yet 2023-10-30 14:30:08 -0400 19) export default galleryConnection;

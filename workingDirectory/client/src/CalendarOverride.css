@@ -1,0 +1,15 @@
+/* CalendarOverride.css */
+
+.rbc-current-time-indicator {
+  background-color: rgb(1, 1, 4) !important;
+}
+
+/* Hide the indicator in adding or editing mode */
+.CalendarComponent.adding-editing-mode .rbc-current-time-indicator {
+  display: none !important;
+}
+
+/* Additional styling for hover effect */
+.CalendarComponent.adding-editing-mode .rbc-current-time-indicator:hover::before {
+  content: none;
+}

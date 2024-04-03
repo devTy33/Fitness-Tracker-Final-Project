@@ -1,0 +1,200 @@
+I commited this code but it still says I didn't I don't know why:
+
+
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   1) import React, { useState } from 'react'
+;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   2) //import logo from './logo.svg';
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   1) import React, { useState } from 'react';
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   2) //import logo from './logo.svg';
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400   3) import './App.css';
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400   4) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   5) const gridItem = {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   6)   // backgroundColor: "lightblue",
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   7)   // border: "1px solid rgba(0, 0, 0, 0.8)",
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   8)   padding: "20px",
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   9) }
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  10) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  11) // const itegerRegex = new RegExp('^[0-9]+$');
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  12) 
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400  13) function App() {
+:...skipping...
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   1) import React, { useState } from 'react';
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   2) //import logo from './logo.svg';
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400   3) import './App.css';
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400   4) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   5) const gridItem = {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   6)   // backgroundColor: "lightblue",
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   7)   // border: "1px solid rgba(0, 0, 0, 0.8)",
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   8)   padding: "20px",
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500   9) }
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  10) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  11) // const itegerRegex = new RegExp('^[0-9]+$');
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  12) 
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400  13) function App() {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  14)   const [gender, setGender] = useState('male');
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  15)   const [age, setAge] = useState('');
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  16)   const [height, setHeight] = useState({ feet: '', inches: '' });
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  17)   const [weightInLbs, setWeightInLbs] = useState('');
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  18)   const [goal, setGoal] = useState('maintain');
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  19)   const [activityLevel, setActivityLevel] = useState('sedentary');
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  20)   const [calories, setCalories] = useState(null);
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  21) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  22)   const handleInputChange = (event) => {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  23)     const { name, value } = event.target;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  24) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  25)     if (name === 'height') {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  26)       setHeight((prevHeight) => ({ ...prevHeight, [event.target.dataset.unit]: value }));
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  27)     } else {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  28)       switch (name) {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  29)         case 'gender':
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  30)           setGender(value);
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  31)           break;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  32)         case 'age':
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  33)           setAge(value);
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  34)           break;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  35)         case 'weight':
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  36)           setWeightInLbs(value);
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  37)           break;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  38)         case 'goal':
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  39)           setGoal(value);
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  40)           break;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  41)         case 'activityLevel':
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  42)           setActivityLevel(value);
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  43)           break;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  44)         default:
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  45)           break;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  46)       }
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  47)     }
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  48)   };
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  49) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  50)   const calculateCalories = () => {
+) || 0;
+ches) || 0;
+nches * 2.54;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  54) 
+htInLbs / 2);
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  56) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  57)     let calorieNeeds = 0;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  58) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  59)     if (gender === 'male') {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  60)       calorieNeeds =
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  61)         88.5 +
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  62)         16.99 * (weightInKgs) +
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  63)         8.003 * heightInCm -
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  64)         7.67 * parseFloat(age);
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  65)     } else if (gender === 'female') {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  66)       calorieNeeds =
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  67)         447.1 +
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  68)         12.247 * (weightInKgs) +
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  69)         4.598 * heightInCm -
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  70)         5.389 * parseFloat(age);
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  71)     }
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  72) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  73)     console.log({goal, activityLevel})
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  74) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  75)     if (goal === 'increase') {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  76)       calorieNeeds += 500;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  77)     } else if (goal === 'decrease') {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  78)       calorieNeeds -= 500;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  79)     }
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  80) 
+tivity level
+{
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  83)       calorieNeeds *= 1.2;
+ate') {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  85)       calorieNeeds *= 1.55;
+e') {
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  87)       calorieNeeds *= 1.9;
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  88)     }
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  89) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  90)     setCalories(calorieNeeds);
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  91)   };
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  92) 
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400  93)   return (
+er', alignItems: 'center' }}>
+to", padding: "10px" }}>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  96) 
+nder</label></div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500  98)         <div style={gridItem}>
+ name="gender" value="male" checked={gender === 'male'} onChange={handleInputChange} />
+abel>
+" name="gender" value="female" checked={gender === 'female'} onChange={handleInputChange} />
+</label>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 103)         </div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 104) 
+e</label></div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 106)         <div style={gridItem}>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 107)           <input
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 108)             type="number"
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 109)             name="age"
+}
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 111)           />
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 112)         </div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 113) 
+ight</label></div>
+lay: 'flex' }}>
+ }}>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 117)             <input
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 118)               type="number"
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 119)               name="height"
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 120)               data-unit="feet"
+ge}
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 122)               placeholder="Feet"
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 123)             />
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 124)           </div>
+ }}>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 126)             <input
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 127)               type="number"
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 128)               name="height"
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 129)               data-unit="inches"
+ge}
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 131)               placeholder="Inches"
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 132)             />
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 133)           </div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 134)         </div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 135) 
+ight (lbs)</label></div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 137)         <div style={gridItem}>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 138)           <input
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 139)             type="number"
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 140)             name="weight"
+e}
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 142)           />
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 143)         </div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 144) 
+al</label></div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 146)         <div style={gridItem}>
+al" onChange={handleInputChange}>
+intain Weight</option>
+crease Weight</option>
+crease Weight</option>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 151)           </select>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 152)         </div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 153) 
+tivity Level</label></div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 155)         <div style={gridItem}>
+ name="activityLevel" onChange={handleInputChange}>
+Sedentary</option>
+oderate</option>
+ive</option>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 160)           </select>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 161)         </div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 162) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 163)         <div style={gridItem}></div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 164)         <div style={gridItem}>
+ories}>Calculate Calories</button>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 166)         </div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 167) 
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 168)         <div style={gridItem}></div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 169)         <div style={gridItem}>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 170)           <div>
+2>
+alories} calories per day</p>}
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 173)           </div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 174)         </div>
+00000000 (Not Committed Yet 2023-11-13 20:15:05 -0500 175)       </div>
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400 176)     </div>
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400 177)   );
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400 178) }
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400 179) 
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400 180) export default App;

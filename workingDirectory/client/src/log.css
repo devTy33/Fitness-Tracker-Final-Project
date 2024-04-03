@@ -1,0 +1,220 @@
+/*Make the username and password */
+
+/* Add this to your CSS file */
+.username-input, .password-input {
+    width: 100%; /* Use a percentage width to make inputs scale with their container */
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px solid #000000;
+    border-radius: 4px;
+  }
+  
+  /* Styles for the input groups */
+  .input-group {
+    text-align: center;
+  }
+  
+  /* Style for the submit button */
+  .my-button {
+    width: 100%; /* Use a percentage width to make the button scale with its container */
+    height: 35px;
+    background-color: #000000;
+    color: white; /* Text color for contrast */
+    border: none;
+    padding: 10px; /* Adjust padding as needed */
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Shaking animation */
+@keyframes shake {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+      transform: translateX(10px);
+  }
+}
+
+.create-account-button {
+  width: 100%;
+  height: 30px;
+  background-color: #3498db; /* Change this color to your desired color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  outline: none;
+}
+
+.create-account-button:hover {
+  background-color: #2980b9; /* Change this color to the hover color you desire */
+}
+
+.create-account-button:active {
+  transform: translateY(2px);
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+  
+  .my-button:hover {
+    background-color: rgb(84, 1, 1); /* Change to a darker shade of red on hover */
+  }
+  
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    10% {
+      transform: translateX(-5px);
+    }
+    20% {
+      transform: translateX(5px);
+    }
+    30% {
+      transform: translateX(-5px);
+    }
+    40% {
+      transform: translateX(5px);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+    60% {
+      transform: translateX(5px);
+    }
+    70% {
+      transform: translateX(-5px);
+    }
+    80% {
+      transform: translateX(5px);
+    }
+    90% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Apply the shake animation to the submit button */
+  .shake {
+    animation: shake 0.5s; /* Adjust the duration as needed */
+  }
+  
+  .error-text {
+    text-align: center;
+    color: red; /* Set the text color to red or your preferred color */
+    font-weight: bold; /* Make the text bold */
+    opacity: 0; /* Initially set the message to be invisible */
+    transition: opacity 0.5s ease-in-out; /* Adjust the transition duration as needed */
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    margin-top: 10px; /* Add margin to move it slightly down */
+  }
+  
+  /* Styles for the labels */
+  .input-group label {
+    display: block;
+    font-family: "Calibri", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  /* Style for the title */
+  .centered-text {
+    text-align: center;
+    font-size: 25px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    color: #c4c4c4; /* Set the text color to white or your preferred color */
+    margin-bottom: 790px; /* Add margin at the bottom to separate it from the form */
+    margin-top: -350px;
+  }
+  
+  .main-title {
+    opacity: 0;
+  }
+  
+  .title-screen {
+    /* pending changes */
+  }
+  
+  /* Style for the container */
+  .container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    background-color: #ffffff; /* Set your desired background color */
+    padding: 20px; /* Add padding to control the space between the content and the box */
+    margin: 20vh auto 0 auto; /* Center the container vertically and horizontally with space at the top */
+    width: 20%; /* Decrease the width to make the box smaller */
+  }
+  
+  .box-container {
+    text-align: center;
+    margin: 20px; /* Add margin to control space around the box */
+    padding: 20px; /* Add padding inside the box */
+    background-color: #246cb5; /* Set your desired background color */
+  }
+  
+  /* Styles for the inputs */
+  input {
+    width: 60%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px solid #263d72;
+    border-radius: 0; /* Set border radius to 0 to make the input fields not rounded */
+    background-color: #f0f0f0; /* Set your desired background color */
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  .login-title {
+    font-size:20px;
+    
+  }
+  .App-header {
+    background-color: #61656c;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: rgb(137, 48, 48);
+  }
+  
+  body {
+    /*background-image: url('background.jpg');*/ /* Specify the path to your image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

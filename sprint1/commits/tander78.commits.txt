@@ -1,0 +1,4 @@
+I commited both the "front-end" folder and the "server folder".
+
+The front-end folder contains a simple react login page to test the api. When the submit button is hit it sends
+a requests to my Node server in the "server" folder. The routes are handled in the server folder with express.

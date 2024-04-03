@@ -1,0 +1,205 @@
+14731c33 (JPSaia      2023-11-09 21:44:03 -0500   2) import saladImage from './salad2.png'; 
+14731c33 (JPSaia      2023-11-09 21:44:03 -0500   3) import shrimppastaImage from './shrimppasta.png'; 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500   4) import waffle from './Waffle.png';
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500   5) import quiche from './Quiche.png';
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500   6) import stirfry from './Stir.png'
+1801b3f6 (JPSaia      2023-11-09 18:32:38 -0500  11)       name: 'Veggie & White Bean Salad',
+14731c33 (JPSaia      2023-11-09 21:44:03 -0500  12)       image: saladImage,
+'Pepper'],
+1801b3f6 (JPSaia      2023-11-09 18:32:38 -0500  14)       directions: 'In a medium bowl, mix together the greens, vegetables, beans, and avocado. Drizzle the mixture with vinegar
+ and oil, then season with salt and pepper. Toss everything to combine well, and transfer the salad to a large plate.',
+1801b3f6 (JPSaia      2023-11-09 18:32:38 -0500  21)       name: 'Shrimp Scampi with Noodles',
+14731c33 (JPSaia      2023-11-09 21:44:03 -0500  22)       image: shrimppastaImage,
+1801b3f6 (JPSaia      2023-11-09 18:32:38 -0500  38)       directions: `Heat butter and 1 tablespoon of oil in a large skillet over medium-high heat until the butter has melted, a
+pproximately 1 minute. Add the shallot and cook, stirring occasionally, until it softens, around 3 minutes. Stir in the garlic and cook constantly for 1 minute. Pour in the wine a
+nd stock, letting it simmer without disturbance until the liquid reduces by half, about 2 minutes. Add the shrimp, pepper, and 1/2 teaspoon of salt, and cook until the shrimp are 
+just cooked through, approximately 3 minutes, turning them once halfway through the cooking time. Transfer the shrimp to a plate and set aside, keeping the shallot sauce in the sk
+illet.
+1801b3f6 (JPSaia      2023-11-09 18:32:38 -0500  39) 
+1801b3f6 (JPSaia      2023-11-09 18:32:38 -0500  40) To the skillet, add tomatoes and the remaining 2 tablespoons of oil. Cook over medium-high heat without stirring until the tom
+atoes begin to soften, about 1 minute. Add the zucchini and the remaining 3/8 teaspoon of salt, tossing to combine. Return the shrimp to the skillet and cook, stirring constantly,
+ until the mixture is heated through, about 1 minute. Remove the skillet from the heat, add 2 tablespoons of Parmesan, and toss to combine everything.
+1801b3f6 (JPSaia      2023-11-09 18:32:38 -0500  41) 
+1801b3f6 (JPSaia      2023-11-09 18:32:38 -0500  42) Divide the mixture evenly among 4 bowls, then sprinkle with parsley and the remaining 2 tablespoons of Parmesan. Serve immedia
+tely.`,
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  48)     
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  49)     {
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  50)     name: 'Vegie and Chicken Quiche',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  51)       image: quiche,
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  53)         '2 cups of flour',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  54)         '3 tablespoons of butter',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  55)         '3 eggs',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  56)         '1 teaspoon salt',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  57)         'chicken breast',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  58)         '3/4 cup cream',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  59)         '2 clove garlic',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  60)         '1 red pepper',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  61)         '1 green pepper',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  62)         '1 onion',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  63)         '1 zucchini',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  64)         '1 medium carrot',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  65)         '6 tablespoon parmesan cheese',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  66)         '1/2 tablespoon olive oil',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  67)       ],
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  68)       directions: `To prepare this dish, begin by sifting the flour and ensuring the butter is at room temperature. Set one eg
+g aside for later use.
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  69) 
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  70)       Combine the flour, softened butter, and eggs in a bowl, stirring until a uniform dough forms. Shape the dough into a bal
+l, wrap it in plastic, and refrigerate for 30 minutes.
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  71)       
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  72)       While the dough chills, clean and finely chop or process the vegetables, setting them aside.
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  73)       
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  74)       In a large pan, heat oil over medium heat. Add diced chicken breast and sauté until it changes color. Incorporate the co
+oked vegetables, season with salt and pepper, cover, and simmer for 20 minutes over low heat.
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  75)       
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  76)       Preheat the oven to 356°F (180°C). On a floured surface, roll out the dough with a rolling pin until it reaches approxim
+ately 9 inches (23 cm) in diameter.
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  77)       
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  78)       Transfer the rolled-out dough to a greased baking pan, and puncture it with a fork. Bake for 15 minutes or until golden 
+brown. Remove from the oven and pour the chicken and vegetable filling over the crust, spreading it evenly.
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  79)       
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  80)       In a bowl, combine cream with the previously set aside egg, seasoning with salt and pepper. Pour this mixture over the f
+illing, then sprinkle with cheese.
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  81)       
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  82)       Bake for an additional 10 to 15 minutes. Serve the dish hot.`,
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  83)       calorieCount: 499,
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  84)       fat: '30.1g',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  85)       carbs: '39.1g',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  86)       protein: '18.5g',
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  87)     },
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500  88)     
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500  89)     {
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500  90)     name: 'Oat Waffles with Blueberries and Raspberries',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500  91)       image: waffle,
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500  93)         'Oats: 5 tablespoons (50 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500  94)         'Egg: 1 count (55 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500  95)         'Milk: 1/3 cup (79 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500  96)         'Baking Powder: 1 teaspoon (3 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500  97)         'Stevia: 2 packets (2 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500  98)         'Vanilla Extract: 1 teaspoon (5 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500  99)         'Blueberries: 1/2 cup (75 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 100)         'Raspberries: 1/2 cup (75 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 101)       ],
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 102)       directions: `Preheat the waffle maker while preparing the mix. If you don't have a waffle maker, a pancake pan works as 
+well.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 103) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 104) If oat flour isn't available, blend rolled oats and all ingredients (except the fruit) until smooth.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 105) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 106) If using oat flour, combine all ingredients (excluding the fruit) in a bowl and let it sit for 5 minutes.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 107) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 108) Pour the mixture into the waffle maker and cook.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 109) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 110) To prevent sticking, you can oil the waffle maker.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 111) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 112) Serve the waffles and garnish with blueberries and raspberries. Optionally, add sugar-free syrup.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 113) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 114) Stevia can be replaced with your preferred sweetener, such as erythritol, sucralose, xylitol, monk fruit, etc.`,
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 115)       calorieCount: 402,
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 116)       fat: '10.4g',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 117)       carbs: '59.5g',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 118)       protein: '17.6g',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 119)     },
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 120)     {
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 121)       name: 'Chicken Stir-Fry with Bell Pepper and Cashews',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 122)       image: stirfry,
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 124)         'Chicken Breast: 200 g',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 125)         'Bell Pepper: 1 count (120 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 126)         'Cashews: 2 tablespoons (28 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 127)         'Oil: 1/2 tablespoon (5 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 128)         'Soy Sauce: 1 teaspoon (5 g)',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 129)       ],
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 130)       directions: `Cut the bell pepper and chicken into small pieces.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 131) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 132) Heat a pan over high heat. Once heated, pour the oil, spread and add the chicken with a pinch of salt.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 133) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 134) Cook for 4 minutes over medium heat while stirring from time to time. Then add the bell pepper, soy sauce and mix well.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 135) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 136) Cover and cook for 5 more minutes.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 137) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 138) Season to taste and add the cashews. Mix well.
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 139) 
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 140) Serve hot.`,
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 141)       calorieCount: 468,
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 142)       fat: '22.8g',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 143)       carbs: '14.9g',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 144)       protein: '51.7g',
+0387d6de (JPSaia      2023-11-12 18:56:44 -0500 145)     },
+5274f9ff (JPSaia      2023-11-11 14:29:37 -0500 146)     // Add more meals as needed
+
+Commit: 106083d
+.meal-item img {
+   width: 25%; 
+   height: auto; 
+   border-radius: 8px; 
+   margin-bottom: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+ }
+
+Commit: b166492
+meal-planner-container {
+   background-color: #f8f8f8;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+   border-radius: 15px;
+   padding: 30px;
+   margin-top: 20px;
+ }
+
+
+ .meal-item {
+   margin-bottom: 30px;
+   padding: 20px;
+   border: 1px solid #e0e0e0;
+   border-radius: 10px;
+   background-color: #fff;
+   transition: transform 0.3s ease-in-out;
+ }
+
+ .meal-item:hover {
+   transform: scale(1.02);
+ }
+
+
+ .meal-item h3 {
+   font-size: 24px;
+   color: #333;
+   margin-bottom: 10px;
+ }
+
+ .meal-item h4 {
+   font-size: 18px;
+   color: #555;
+   margin-bottom: 8px;
+ }
+
+
+ .meal-item ul {
+   list-style: none;
+   padding: 0;
+   margin-bottom: 15px;
+ }
+
+ .meal-item ul li {
+   margin-bottom: 8px;
+   font-size: 16px;
+   color: #666;
+ }
+
+
+ .meal-item p {
+   color: #777;
+   margin-bottom: 15px;
+   font-size: 16px;
+   line-height: 1.4;
+ }
+
+
+ .meal-planner-summary {
+   background-color: #333;
+   color: #fff;
+   border-radius: 10px;
+   padding: 20px;
+   margin-top: 40px;
+   text-align: center;
+ }
+
+

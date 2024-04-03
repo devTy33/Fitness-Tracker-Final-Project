@@ -1,0 +1,213 @@
+--My orginal committs of MealPlanner.js and CalendarComponent.js were in my own personal folder. Ty mereged to working directory and deleted my folder after because we didnt need it anymore. For that reason you can't see my commit unless you go back in the history but we are using the code. 
+
+
+commit dbd8e86
+import React from 'react';
+
+ const MealPlanner = () => {
+   const meals = [
+     {
+       name: 'White Bean & Veggie Salad',
+       ingredients: ['Greens', 'Veggies', 'Beans', 'Avocado', 'Vinegar', 'Oil', 'Salt', 'Pepper'],
+       directions: 'Combine greens, veggies, beans and avocado in a medium bowl. Drizzle with vinegar and oil and season with salt and pepper. Toss to combine and transfer to a large plate.',
+       calorieCount: 360,
+       fat: '25g',
+       carbs: '30g',
+       protein: '10g',
+     },
+     {
+       name: 'Easy Shrimp Scampi with Zucchini Noodles',
+       ingredients: [
+         '2 tablespoons unsalted butter',
+         '3 tablespoons extra-virgin olive oil, divided',
+         '1 medium shallot, finely chopped (about 1/4 cup)',
+         '2 medium garlic cloves, finely chopped',
+         '2 tablespoons white wine',
+         '2 tablespoons unsalted chicken stock',
+         '1 pound large shrimp, peeled and deveined',
+         '½ teaspoon black pepper',
+         '⅞ teaspoon kosher salt, divided',
+         '1 cup multicolored cherry tomatoes, halved',
+         '6 cups spiralized zucchini (from 2 [10.7-oz.] pkgs.)',
+         '4 tablespoons pregrated Parmesan cheese, divided',
+         '2 tablespoons chopped fresh flat-leaf parsley'
+       ],
+       directions: `Heat butter and 1 tablespoon of the oil in a large skillet over medium-high until butter melts, about 1 minute. Add shallot; cook, stirring occasionally, until softened, about 3 minutes. Add garlic; cook, stirring constantly, 1 minute. Add wine and stock; cook, undisturbed, until liquid reduces by half, about 2 minutes. Add shrimp, pepper and 1/2 teaspoon of the salt; cook until shrimp are just cooked through, about 3 minutes, turning shrimp once halfway through cook time. Transfer shrimp to a plate and set aside. (Reserve shallot sauce in skillet.) Add tomatoes and the remaining 2 tablespoons oil to skillet. Cook over medium-high, undisturbed, until tomatoes just soften, about 1 minute. Add zucchini and remaining 3/8 teaspoon salt; toss to combine. Return shrimp to skillet; cook, stirring constantly until mixture is heated through, about 1 minute. Remove from heat; add 2 tablespoons of the Parmesan and toss to combine. Divide mixture evenly among 4 bowls; sprinkle with parsley and remaining 2 tablespoons Parmesan. Serve immediately.`,
+       calorieCount: 349,
+       fat: '27g',
+       carbs: '6g',
+       protein: '19g',
+     },
+     // Add more meal objects as needed
+   ];
+
+   return (
+     <div className="meal-planner-container">
+       <div className="meal-list">
+         {meals.map((meal, index) => (
+           <div className="meal-item" key={index}>
+             <h3>{meal.name}</h3>
+             <h4>Ingredients:</h4>
+             <ul>
+               {meal.ingredients.map((ingredient, i) => (
+                 <li key={i}>{ingredient}</li>
+               ))}
+             </ul>
+             <h4>Directions:</h4>
+             <p>{meal.directions}</p>
+             <p><strong>Calorie Count:</strong> {meal.calorieCount} calories</p>
+             <p><strong>Fat:</strong> {meal.fat}</p>
+             <p><strong>Carbs:</strong> {meal.carbs}</p>
+             <p><strong>Protein:</strong> {meal.protein}</p>
+           </div>
+         ))}
+       </div>
+       <div className="meal-planner-summary">
+         <h2>Why Meal Planning, Calorie Surplus, and Calorie Deficit are Important:</h2>
+         <p> Meal planning ensures a balanced and nutritious diet, supports weight management goals, and provides consistent energy. Calorie surplus aids in muscle gain and strength, while calorie deficit promotes weight and fat loss, leading to better overall health and fitness. It's important to consult with a healthcare provider or a nutritionist to determine the right calorie balance for your individual needs and goals.</p>
+       </div>
+     </div>
+   );
+ };
+
+ export default MealPlanner;
+
+
+commit ed9486a
+import React, { useState } from 'react';
+ import { Calendar, momentLocalizer } from 'react-big-calendar';
+ import moment from 'moment';
+ import 'react-big-calendar/lib/css/react-big-calendar.css';
+ import Modal from 'react-modal';
+
+ Modal.setAppElement('#root');
+
+ const localizer = momentLocalizer(moment);
+
+ const CalendarComponent = () => {
+   const [events, setEvents] = useState([]);
+   const [isModalOpen, setIsModalOpen] = useState(false);
+   const [newEvent, setNewEvent] = useState({});
+
+   const openModal = (slotInfo) => {
+     setIsModalOpen(true);
+     setNewEvent({
+       start: slotInfo.start,
+       end: slotInfo.end,
+     });
+   };
+
+   const closeModal = () => {
+     setIsModalOpen(false);
+     setNewEvent({});
+   };
+
+   const handleEventSave = () => {
+     if (newEvent.start && newEvent.end && newEvent.title) {
+       setEvents([...events, newEvent]);
+     }
+     setIsModalOpen(false);
+     setNewEvent({});
+   };
+
+   return (
+     <div className="CalendarComponent">
+       <Calendar
+         selectable
+         localizer={localizer}
+         events={events}
+         defaultView="day"
+         views={['day', 'week']}
+         step={60}
+         showMultiDayTimes
+         onSelectSlot={openModal}
+       />
+       <Modal
+         isOpen={isModalOpen}
+         onRequestClose={closeModal}
+         contentLabel="Add Event"
+         ariaHideApp={false}
+       >
+         <h2>Add Workout</h2>
+         <input
+           type="text"
+           value={newEvent.title || ''}
+           onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+         />
+         <button onClick={handleEventSave}>Save</button>
+       </Modal>
+     </div>
+   );
+ };
+
+ export default CalendarComponent;
+
+
+commit abea6b5
+body {
+   font-family: Arial, sans-serif;
+   background-color: #f5f5f5;
+   color: #333;
+   margin: 0;
+   padding: 0;
+ }
+
+ .container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 20px;
+ }
+
+ .meal-planner-container {
+   background-color: #fff;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+   border-radius: 10px;
+   padding: 40px;
+   margin-top: 20px;
+ }
+
+ .meal-item {
+   margin-bottom: 30px;
+   padding: 20px;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   background-color: #fff;
+ }
+
+ .meal-item h3 {
+   font-size: 24px;
+   color: #333;
+ }
+
+ .meal-item h4 {
+   font-size: 18px;
+   color: #555;
+ }
+
+ .meal-item ul {
+   margin-bottom: 15px;
+   list-style: none;
+   padding: 0;
+ }
+
+ .meal-item ul li {
+   margin-bottom: 10px;
+ }
+
+ .meal-item p {
+   color: #777;
+ }
+
+ .meal-planner-summary {
+   background-color: #333;
+   color: #fff;
+   border-radius: 5px;
+   padding: 20px;
+   margin-top: 40px;
+ }
+
+ @media (max-width: 768px) {
+   .meal-planner-container {
+     padding: 20px;
+   }
+ }

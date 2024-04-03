@@ -1,0 +1,130 @@
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400  1) const mongoose=require("mongoose")
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400  2)
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400  3) mongoose.connect("mongodb://localhost:27017/TSF")
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400  4) .then(()=>{
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400  5)     console.log("mongodb connected");
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400  6) })
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400  7) .catch(()=>{
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400  8)     console.log("failed to connect");
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400  9) })
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 10)
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 11) const LogInSchema=new mongoose.Schema({
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 12)     name:{
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 13)         type:String,
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 14)         required:true
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 15)     },
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 16)     password:{
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 17)         type:String,
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 18)         required:true
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 19)     }
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 20) })
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 21)
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 22) const collection=new mongoose.model("Users", LogInSchema)
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 23)
+06d3c08b (jpalumbo64 2023-10-26 20:44:54 -0400 24) module.exports=collection
+
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400  6)
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400  7) const path=require("path")
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400  8) const collection=require('./mongodb')
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400  9)
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 10)
+6cb76867 (jpalumbo64  2023-10-30 18:37:35 -0400 21) /*app.get("/login",(req,res)=>{
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 22)     res.render("login")
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 23) })
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 24)
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 25) app.get("/signup",(req,res)=>{
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 26)     res.render("signup")
+6cb76867 (jpalumbo64  2023-10-30 18:37:35 -0400 27) }) */
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 28)
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 29) app.post('/signup', async (req,res)=>{
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 30)
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 31)     const data={
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 32)         name:req.body.name,
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 33)         password:req.body.password
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 34)     }
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 35)
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 36)     await collection.insertMany([data])
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 37)
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 38)     res.render("home")
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 39)
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 40) })
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 43)     /*try{
+06d3c08b (jpalumbo64  2023-10-26 20:44:54 -0400 52)     }
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 55)     } */
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 56)
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 57)     try{
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 58)         const check=await collection.findOne({name:req.body.name})
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 59)
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 60)         if(check.password===req.body.password){
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 61)             res.render("home")
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 62)         }
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 63)         else{
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 64)             res.send("Wrong password")
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 65)         }
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 66)     }
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 67)     catch{
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 68)         res.send("wrong login user")
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 69)     }
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 70)
+a47aa1a0 (jpalumbo64  2023-10-26 20:53:41 -0400 71)     res.render("home")
+
+6cb76867 (jpalumbo64  2023-10-30 18:37:35 -0400 10) import Signup from './signup.js'
+6cb76867 (jpalumbo64  2023-10-30 18:37:35 -0400 20)         <Route path="/signup" element={<Signup />} />
+
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400  1) import React, { Component } from 'react';
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400  2)
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400  3) class Signup extends Component {
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400  4)   constructor() {
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400  5)     super();
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400  6)     this.state = {
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400  7)       email: '',
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400  8)       password: '',
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400  9)     };
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 10)   }
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 11)
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 12)   handleInputChange = (e) => {
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 13)     const { name, value } = e.target;
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 14)     this.setState({ [name]: value });
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 15)   }
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 16)
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 17)   handleSubmit = (e) => {
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 18)     e.preventDefault();
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 19)     console.log('Form submitted with data:', this.state);
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 20)   }
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 21)
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 22)   render() {
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 23)     return (
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 24)       <div>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 25)         <h2>Signup</h2>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 26)         <form onSubmit={this.handleSubmit}>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 27)           <div>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 28)             <label>Email:</label>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 29)             <input
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 30)               type="email"
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 31)               name="email"
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 32)               value={this.state.email}
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 33)               onChange={this.handleInputChange}
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 34)             />
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 35)           </div>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 36)           <div>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 37)             <label>Password:</label>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 38)             <input
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 39)               type="password"
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 40)               name="password"
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 41)               value={this.state.password}
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 42)               onChange={this.handleInputChange}
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 43)             />
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 44)           </div>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 45)           <div>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 46)             <button type="submit">Sign Up</button>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 47)           </div>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 48)         </form>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 49)       </div>
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 50)     );
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 51)   }
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 52) }
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 53)
+6cb76867 (jpalumbo64 2023-10-30 18:37:35 -0400 54) export default Signup;
+
+
+

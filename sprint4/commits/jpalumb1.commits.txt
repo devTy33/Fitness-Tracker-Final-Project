@@ -1,0 +1,30 @@
+$ git blame RunAnalyzer.css
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  1) /* src/RunAnalyzer.css */
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  2) .run-analyzer-container {
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  3)     background: linear-gradient(to bottom, #ffffff, #000000); /* Adjust gradient colors */
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  4)     color: white; /* Set text color for the entire container */
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  5)     padding: 20px;
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  6)     height: 100vh;
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  7)     display: flex;
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  8)     flex-direction: column;
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  9)     align-items: center;
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 10)     justify-content: center;
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 11)   }
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 12)
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 13)   form {
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 14)     background: rgba(0, 0, 0, 0.5);
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 15)     padding: 20px;
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 16)     border-radius: 8px;
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 17)     margin-top: 20px;
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 18)   }
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 19)
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500 20)   .analysis-results {
+
+  $ git blame runAnalyzer.jsx
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500   3) import { Link } from 'react-router-dom';
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500   4) import './RunAnalyzer.css';
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500   9)     distance: 0.0, // Assuming initial distance is in miles
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  10)     duration: 'HH:MM:SS',
+04a594b0 (jpalumbo64 2023-12-01 15:34:56 -0500  11)     date: 'Year-Month-Day',
+
+

@@ -1,0 +1,224 @@
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500   1) import React from 'react';
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500   2) 
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500   3) function App() {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500   4)   const workoutPlan = {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500   5)     push: [
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500   6)       { exercise: 'Bench Press', image: 'bench-press.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500   7)       { exercise: 'Overhead Press', image: 'overhead-tricep.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500   8)       { exercise: 'Dips', image: 'chest-dips.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500   9)       { exercise: 'Shoulder Press', image: 'press.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  10)       { exercise: 'Lateral Raise', image: 'lat.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  11)       { exercise: 'Cable Fly', image: 'cable-flyes.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  12)     ],
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  13)     pull: [
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  14)       { exercise: 'Pull-Ups', image: 'pull-ups.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  15)       { exercise: 'Bent Over Rows', image: 'bent-over.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  16)       { exercise: 'Face Pulls', image: 'face.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  17)       { exercise: 'Hammer Curl', image: 'hammer-curls.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  18)       { exercise: 'Bicep Curl', image: 'bicep-curl.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  19)     ],
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  20)     legs: [
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  21)       { exercise: 'Squats', image: 'squat.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  22)       { exercise: 'Leg Extension', image: 'le.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  23)       { exercise: 'Hamstring Curl', image: 'hs.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  24)       { exercise: 'Calf Raise', image: 'cr.jpg' },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  25)     ],
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  26)   };
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  27) 
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  28)   const styles = {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  29)     App: {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  30)       textAlign: 'center',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  31)       margin: '50px auto',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  32)       padding: '20px',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  33)       backgroundColor: '#fff',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  34)       borderRadius: '8px',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  35)       boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  36)     },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  37)     h1: {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  38)       fontSize: '2.5em',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  39)       color: '#333',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  40)     },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  41)     h2: {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  42)       fontSize: '2em',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  43)       color: '#444',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  44)       marginTop: '20px',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  45)     },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  46)     workoutPlan: {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  47)       marginTop: '20px',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  48)     },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  49)     ul: {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  50)       listStyleType: 'none',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  51)       padding: 0,
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  52)     },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  53)     li: {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  54)       fontSize: '1.5em',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  55)       color: '#666',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  56)       margin: '10px 0',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  57)       backgroundColor: '#f9f9f9',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  58)       padding: '10px',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  59)       borderRadius: '4px',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  60)       boxShadow: '0 0 5px rgba(0, 0, 0, 0.1)',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  61)       cursor: 'pointer',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  62)     },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  63)     liHover: {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  64)       backgroundColor: '#e9e9e9',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  65)     },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  66)     workoutCategory: {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  67)       marginTop: '40px',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  68)     },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  69)     img: {
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  70)       maxWidth: '600px',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  71)       height: 'auto',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  72)       borderRadius: '4px',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  73)       marginBottom: '10px',
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  74)     },
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  75)   };
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  76) 
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  77)   return (
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  78)     <div style={styles.App}>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  79)       <h1 style={styles.h1}>Workout Split</h1>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  80)       <div style={styles.workoutPlan}>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  81)         <WorkoutCategory name="Push Day" exercises={workoutPlan.push} styles={styles} />
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  82)         <WorkoutCategory name="Pull Day" exercises={workoutPlan.pull} styles={styles} />
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  83)         <WorkoutCategory name="Leg Day" exercises={workoutPlan.legs} styles={styles} />
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  84)       </div>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  85)     </div>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  86)   );
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  87) }
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  88) 
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  89) const WorkoutCategory = ({ name, exercises, styles }) => (
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  90)   <div style={styles.workoutCategory}>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  91)     <h2 style={styles.h2}>{name}</h2>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  92)     <ul style={styles.ul}>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  93)       {exercises.map((exercise, index) => (
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  94)         <li key={index} style={styles.li}>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  95)           <img
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  96)             src={`${exercise.image}`}
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  97)             alt={exercise.exercise}
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  98)             style={styles.img}
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500  99)           />
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500 100)           <p>{exercise.exercise}</p>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500 101)         </li>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500 102)       ))}
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500 103)     </ul>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500 104)   </div>
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500 105) );
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500 106) 
+fe2b985b (RileyTaylor908 2023-11-12 18:52:14 -0500 107) export default App;
+
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  1) import React from 'react';
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  2) import './styles.css';
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  3) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  4) function App() {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  5)   const chestExercises = [
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  6)     { name: 'Ab Crunch', image: 'ac.jpg' },
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  7)     { name: 'Ab Wheel Rollout', image: 'awr.jpg' },
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  8)     { name: 'Seated Crunch', image: 'sc.jpg' },
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  9)   ];
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 10) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 11)   return (
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 12)     <div className="App">
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 13)       <header className="App-header">
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 14)         <h1>Ab Exercises</h1>
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 15)       </header>
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 16)       <main className="App-main">
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 17)         <ul>
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 18)           {chestExercises.map((exercise, index) => (
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 19)             <li key={index}>
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 20)               <img
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 21)                 src={`./public/${exercise.image}`}
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 22)                 alt={exercise.name}
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 23)                 className="exercise-image"
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 24)               />
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 25)               {exercise.name}
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 26)             </li>
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 27)           ))}
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 28)         </ul>
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 29)       </main>
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 30)     </div>
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 31)   );
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 32) }
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 33) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 34) export default App;
+
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  1) /* App.css */
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  2) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  3) body {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  4)   font-family: Arial, sans-serif;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  5)   background-color: #f4f4f4;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  6)   margin: 0;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  7)   padding: 0;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  8)   display: center;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500  9)   align-items: center;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 10)   justify-content: center;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 11) }
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 12) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 13) .App {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 14)   width: 100%;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 15)   max-width: 1200px;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 16)   text-align: center;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 17) }
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 18) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 19) .App-header {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 20)   background-color: #333;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 21)   color: #fff;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 22)   padding: 1rem 0;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 23)   position: fixed;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 24)   top: 0;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 25)   width: 100%;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 26)   z-index: 100;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 27)   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 28)   display: center;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 29)   justify-content: center;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 30)   align-items: center; /* Align with the center of the bar */
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 31) }
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 32) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 33) .App-header h1 {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 34)   font-size: 2rem;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 35)   margin: 0;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 36) }
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 37) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 38) .App-main {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 39)   padding: 4rem 0;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 40)   margin: 0 auto;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 41)   display: center;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 42)   justify-content: center;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 43)   gap: 2rem;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 44) }
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 45) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 46) ul {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 47)   list-style: none;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 48)   padding: 0;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 49) }
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 50) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 51) li {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 52)   background-color: #fff;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 53)   border: 2px solid #ddd;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 54)   border-radius: 10px;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 55)   padding: 1.5rem;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 56)   max-width: 600px;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 57)   text-align: right;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 58)   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 59)   transition: transform 0.2s;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 60)   flex: 0 0 calc(33.33% - 2rem);
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 61) }
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 62) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 63) li:hover {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 64)   transform: scale(1.05);
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 65) }
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 66) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 67) .exercise-image {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 68)   width: 500px;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 69)   height: 500px;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 70)   object-fit: cover;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 71)   margin: 0 auto 1rem;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 72) }
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 73) 
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 74) .exercise-name {
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 75)   font-weight: bold;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 76)   margin-top: 1rem;
+d76a3801 (RileyTaylor908 2023-11-12 23:27:05 -0500 77) }
+
+
+
+

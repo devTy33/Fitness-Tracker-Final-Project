@@ -1,0 +1,1 @@
+Smit - CalCount.js gives user and estimate on how many calories to consume based on thier gender, height, weight, age, and goal. 

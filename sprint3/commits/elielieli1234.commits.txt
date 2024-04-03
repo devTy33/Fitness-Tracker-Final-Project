@@ -1,0 +1,189 @@
+
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  1) /* CalendarOverride.css */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  2) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  3)  .rbc-current-time-indicator {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  4)     background-color: blue 
+!important;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  5) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  6) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  7) /* 
+.rbc-current-time-indicator:hover {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  8)   display: block;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  9) }  */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 10) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 11) 
+.rbc-current-time-indicator:hover::before {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 12)     content: attr(data-time); /* 
+Use the 'data-time' attribute to store the time */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 13)     position: absolute;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 14)     top: 0;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 15)     left: 100%;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 16)     padding: 5px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 17)     background-color: #fff;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 18)     border: 1px solid #ddd;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 19)     box-shadow: 0 2px 4px 
+rgba(0, 0, 0, 0.1);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 20)     z-index: 1;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 21)   }
+
+
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  4) import "./CalendarComponent.css"
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  5) import "./CalendarOverride.css"
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  8) import { v4 as uuidv4 } from 
+'uuid';
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 18)   const [selectedEvent, 
+setSelectedEvent] = useState(null);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 31)     setSelectedEvent(null);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 36)       const eventWithId = { 
+...newEvent, id: uuidv4() };
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 37)       setEvents([...events, 
+eventWithId]);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 43)   const handleEventDelete = () 
+=> {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 44)     if (selectedEvent) {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 45)       
+setEvents(events.filter((event) => event.id !== selectedEvent.id));
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 46)     }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 47)     closeModal();
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 48)   };
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 49) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 50)   const handleEventSelect = 
+(event) => {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 51)     setSelectedEvent(event);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 52)     openModal({ start: 
+event.start, end: event.end });
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 53)   };
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 54) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 66)         
+onSelectEvent={handleEventSelect}
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 67)         components={{
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 68)           timeIndicator: (props) 
+=>
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 69)             !isModalOpen && <div 
+{...props} className="rbc-current-time-indicator" />,
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 70)         }}
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 78)         {selectedEvent ? 
+<h2>Edit Workout</h2> : <h2>Add Workout</h2>}
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 81)           value={newEvent.title 
+|| selectedEvent?.title || ''}
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 84)         <button 
+onClick={handleEventSave}>
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 85)           {selectedEvent ? 
+'Update' : 'Save'}
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 86)         </button>
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 87)         {selectedEvent && (
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 88)           <button 
+onClick={handleEventDelete}>Delete</button>
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 89)         )}
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 95) export default CalendarComponent;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 96) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 97) 
+
+
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  1) /* CalendarComponent.css */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  2) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  3) .CalendarComponent {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  4)   margin: 20px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  5) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  6) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  7) .CalendarComponent .rbc-calendar 
+{
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  8)   height: 500px; /* Adjust the 
+calendar height as needed */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  9) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 10) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 11) .CalendarComponent .modal {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 12)   position: absolute;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 13)   top: 50%;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 14)   left: 50%;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 15)   transform: translate(-50%, 
+-50%);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 16)   background-color: white;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 17)   padding: 20px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 18)   border-radius: 8px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 19)   box-shadow: 0 2px 10px rgba(0, 
+0, 0, 0.2);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 20) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 21) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 22) .CalendarComponent .modal h2 {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 23)   margin-bottom: 10px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 24) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 25) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 26) .CalendarComponent .modal input {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 27)   width: 100%;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 28)   padding: 10px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 29)   margin-bottom: 10px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 30) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 31) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 32) .CalendarComponent .modal button 
+{
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 33)   background-color: #4caf50;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 34)   color: white;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 35)   padding: 10px 15px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 36)   border: none;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 37)   border-radius: 4px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 38)   cursor: pointer;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 39) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 40) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 41) .CalendarComponent .modal 
+button:hover {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 42)   background-color: #45a049;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 43) }
+
+
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  21)     background-color: #000000;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  30) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  31)   /* Shaking animation */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  32) @keyframes shake {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  33)   0%, 100% {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  34)       transform: translateX(0);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  35)   }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  36)   10%, 30%, 50%, 70%, 90% {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  37)       transform: 
+translateX(-10px);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  38)   }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  39)   20%, 40%, 60%, 80% {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  40)       transform: 
+translateX(10px);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  41)   }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  42) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  43) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  44) .create-account-button {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  45)   width: 100%;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  46)   height: 30px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  47)   background-color: #3498db; /* 
+Change this color to your desired color */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  48)   color: white;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  49)   border: none;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  50)   border-radius: 4px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  51)   font-weight: bold;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  52)   cursor: pointer;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  53)   transition: background-color 
+0.3s ease;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  54)   outline: none;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  55) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  56) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  57) .create-account-button:hover {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  58)   background-color: #2980b9; /* 
+Change this color to the hover color you desire */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  59) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  60) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  61) .create-account-button:active {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  62)   transform: translateY(2px);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  63) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  64) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  65) .shake {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  66)   animation: shake 0.5s;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  67) }
+
+
+
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 57)       <button type="submit" 
+className="create-account-button">
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 58)         Create Account
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 59)       </button>
+
+
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 113)         <button 
+onClick={routeChange} className= "create-account-button">
+

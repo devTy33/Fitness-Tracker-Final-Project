@@ -1,0 +1,134 @@
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  12) //const loginUri = "mongodb+srv://ty:3Bm88vv9@fta.robftz5.mongodb.net/FTA";
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  13) //const loginConnection = mongoose.createConnection(loginUri);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  15) //const calendarUri = "mongodb+srv://ty:3Bm88vv9@fta.robftz5.mongodb.net/calendar";
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  16) //const calendarConnection = mongoose.createConnection(calendarUri);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  20) 
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  31) 
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  42)     
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  65)     
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  83)     console.log("requested")
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  85)         console.log("requested")
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 137) 
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 166) const eventSchema = new mongoose.Schema({
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 167)     start: { type: String, required: true },
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 168)     end: { type: String, required: true },
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 169)     title: { type: String, required: true },
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 170)     user: { type: String, required: true }, // Assuming user ID is a string
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 171)   });
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 172)   
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 173)   const calendar = mongoose.model('calendar', eventSchema);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 174) 
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 175) app.post('/CalendarComponent', async(req,res)=>{
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 176)     try {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 177)         //const receivedData = req.body;
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 178)         const receivedData={
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 179)             start: req.body.start,
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 180)             end: req.body.end,
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 181)             title: req.body.title,
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 182)             user: req.body.user
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 183)         }
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 184)         console.log('Received data:', receivedData);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 185)     
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 186)         // Implement your logic to save the data to the database here
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 187)         const newEvent = await calendar.insertMany(receivedData);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 188)         console.log(newEvent);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 189)         res.status(200).json({ message: 'Data received successfully' });
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 190)       } catch (error) {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 191)         console.error('Error:', error);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 192)         res.status(500).json({ message: 'Internal server error' });
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 193)       }
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 194) 
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 195) })
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 196) 
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 197) 
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 198) app.get('/CalendarComponent', async (req,res)=>{
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 199)     try {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 200)         const username = req.query.user;
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 201)         // Fetch events for the specified user from the database
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 202)         const events = await calendar.find({ user: username });
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 203)         
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 204)         res.json(events);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 205)       } catch (error) {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 206)         console.error('Error while fetching events:', error);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 207)         res.status(500).json({ message: 'Internal server error' });
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 208)       }
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500 209) })
+
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500   1) import React, { useState, useEffect } from 'react';
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500   9) import UserProfile from './usersession';
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  21)   const fetchEventsFromServer = async () => {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  22)     try {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  23)       const username = UserProfile.getName(); // Get the username from your user session
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  24)       const response = await fetch(`/CalendarComponent?user=${username}`);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  25)       
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  26)       if (response.ok) {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  27)         const data = await response.json();
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  29)         //setEvents(data); // Assuming the response is an array of events
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  30)         
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  31)         const eventsData = data.map(event => ({
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  32)           start: new Date(event.start),
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  33)           end: new Date(event.end),
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  34)           title: event.title,
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  35)           user: event.user,
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  36)         }));
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  37)   
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  38)         setEvents(eventsData);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  39)       } else {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  40)         console.error('Failed to fetch events from the server');
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  41)       }
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  42)     } catch (error) {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  43)       console.error('Error while fetching events:', error);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  44)     }
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  45)   };
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  46)   useEffect(() => {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  47)     fetchEventsFromServer();
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  48)   }, []);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  49) 
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  50) 
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  64)   const saveEventToServer = (event) => {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  65)     return fetch('/CalendarComponent', {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  66)       method: 'POST',
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  67)       headers: {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  68)         'Content-Type': 'application/json',
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  69)       },
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  70)       body: JSON.stringify(event),
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  71)     });
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  72)   };
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  75)       const eventWithId = { ...newEvent, user: UserProfile.getName() };
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  76)       //setEvents([...events, eventWithId]); uncomment to save without server
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  77)       
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  78)       saveEventToServer(eventWithId)
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  79)       .then((response) => {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  80)       if (response.ok) {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  81)         // If the save is successful, update the local events
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  82)         setEvents([...events, eventWithId]);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  83)       } else {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  84)         console.error('Failed to save event to the server');
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  85)       }
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  86)       })
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  87)       .catch((error) => {
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  88)         console.error('Error while saving event:', error);
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  89)       });
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  90)       
+a8cd9898 (Ty Anderson       2023-12-01 04:53:43 -0500  92)     
+
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500  1) var UserProfile = (function() {
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500  2)     var username = localStorage.getItem('username') || "";
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500  3)   
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500  4)     var getName = function() {
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500  5)       return username;
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500  6)     };
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500  7)   
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500  8)     var setName = function(name) {
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500  9)       username = name;
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 10)       localStorage.setItem('username', name);
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 11)     };
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 12)   
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 13)     return {
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 14)       getName: getName,
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 15)       setName: setName
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 16)     };
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 17)   
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 18)   })();
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 19)   
+a8cd9898 (Ty Anderson 2023-12-01 04:53:43 -0500 20)   export default UserProfile;

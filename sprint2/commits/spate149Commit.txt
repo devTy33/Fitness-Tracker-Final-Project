@@ -1,0 +1,112 @@
+My commits won't show because this code was originally in a different folder and I made the commits before it got merged into the actual folder that we will use.
+However, this was all the code I worte for this commit
+
+
+commit 6e630ff
+const gridItem = {
+  // backgroundColor: "lightblue",
+  // border: "1px solid rgba(0, 0, 0, 0.8)",
+  padding: "20px",
+}
+
+    // Converts feet and inches into cm and pound into kilos 
+    const feet = parseFloat(height.feet) || 0; // Convert to a number, default to 0 if not provided
+    const inches = parseFloat(height.inches) || 0; // Convert to a number, default to 0 if not provided
+    const heightInCm = (feet * 30.48) + (inches * 2.54);
+
+
+    // The theme of the webpage
+    return (
+    <div style={{justifySelf: 'center', alignSelf: 'center', display: 'flex', flexDirection: 'column', top: '50%', justifyContent: 'center', alignItems: 'center'}}>
+      <div style={{display: 'grid', borderRadius: "5px", border: "1px solid lightblue", backgroundColor: 'lightblue', gridTemplateColumns: "auto auto", padding: "10px"}}>
+       
+        <div style={gridItem}><label>Gender</label></div>
+        <div style={gridItem}>
+        <input type="radio" id="huey" name="gender" value="male" checked />
+        <label for="huey">male</label>
+         <input type="radio" id="dewey" name="gender" value="female" />
+        <label for="dewey">female</label>
+        </div>
+
+        <div style={gridItem}><label>Age</label></div>
+        <div style={gridItem}>
+          <input
+            type="number"
+            name="age"
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={gridItem}><label>Height</label></div>
+        <div style={{...gridItem, display: 'flex'}}>
+          <div style={{padding: "10px"}}>
+          <input
+            type="number"
+            name="age"
+            onChange={handleInputChange}
+            placeholder="Feet"
+          />
+          </div>
+          <div style={{padding: "10px"}}>  
+          <input
+            type="number"
+            name="age"
+            onChange={handleInputChange}
+            placeholder="inches"
+          />
+          </div>
+        </div>
+
+        <div style={gridItem}><label>Weight</label></div>
+        <div style={gridItem}>
+          <input
+            type="number"
+            name="age"
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={gridItem}><label>Goal</label></div>
+        <div style={gridItem}>
+        <select name="goal" onChange={handleInputChange}>
+            <option value="maintain">Maintain Weight</option>
+            <option value="increase">Increase Weight</option>
+            <option value="decrease">Decrease Weight</option>
+          </select>
+        </div>
+
+
+        <div style={gridItem}></div>
+        <div style={gridItem}>
+        <button onClick={calculateCalories}>Calculate Calories</button>
+        </div>
+
+        <div style={gridItem}></div>
+        <div style={gridItem}>
+        <div>
+          <h2>Daily Calorie Needs:</h2>
+          {calories !== null && <p>{calories} calories per day</p>}
+        </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  //BMI calcultor 
+  calculateBMI = () => {
+    const { weight, height } = this.state;
+    if (weight > 0 && height > 0) {
+      const bmi = (weight / (height * height)) * 703; // Formula for BMI
+      this.setState({ result: bmi });
+    } else {
+      this.setState({ result: null });
+    }
+  }
+
+  handleWeightChange = (e) => {
+    this.setState({ weight: e.target.value });
+  }
+
+  handleHeightChange = (e) => {
+    this.setState({ height: e.target.value });
+  }

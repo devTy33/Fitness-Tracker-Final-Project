@@ -1,0 +1,137 @@
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500   6) import stirfry from './Stir.png';
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500   7) import omelet from './Omelet.png';
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500   8) import chickenMA from './Chicken.png';
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500   9) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 113)     
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 114)     {
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 115)       name: 'Veggie & White Bean Salad',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 116)       image: saladImage,
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 117)       ingredients: ['Greens', 'Veggies', 'Beans', 'Avocado', 'Vinegar', 'Oil', 'Salt', 'Pepper'],
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 118)       directions: 'In a medium bowl, mix together the greens, vegetables, beans, and avocado. Drizzle the mixture with vinegar
+ and oil, then season with salt and pepper. Toss everything to combine well, and transfer the salad to a large plate.',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 119)       calorieCount: 360,
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 120)       fat: '25g',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 121)       carbs: '30g',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 122)       protein: '10g',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 123)     },
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 124)     
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 125)     {
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 126)       name: 'Chicken Stir-Fry with Bell Pepper and Cashews',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 127)       image: stirfry,
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 128)       ingredients: [
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 129)         'Chicken Breast: 200 g',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 130)         'Bell Pepper: 1 count (120 g)',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 131)         'Cashews: 2 tablespoons (28 g)',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 132)         'Oil: 1/2 tablespoon (5 g)',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 133)         'Soy Sauce: 1 teaspoon (5 g)',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 134)       ],
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 135)       directions: `Cut the bell pepper and chicken into small pieces.
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 136) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 137)       Heat a pan over high heat. Once heated, pour the oil, spread and add the chicken with a pinch of salt.
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 138) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 139)       Cook for 4 minutes over medium heat while stirring from time to time. Then add the bell pepper, soy sauce and mix well.
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 140) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 141)       Cover and cook for 5 more minutes.
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 142) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 143)       Season to taste and add the cashews. Mix well.
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 144) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 145)       Serve hot.`,
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 146)       calorieCount: 468,
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 147)       fat: '22.8g',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 148)       carbs: '14.9g',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 149)       protein: '51.7g',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 150)     },
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 151)     
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 152)     {
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 153)       name: 'Shrimp Scampi with Noodles',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 154)       image: shrimppastaImage,
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 155)       ingredients: [
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 156)         '2 tablespoons unsalted butter',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 157)         '3 tablespoons extra-virgin olive oil, divided',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 158)         '1 medium shallot, finely chopped (about 1/4 cup)',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 159)         '2 medium garlic cloves, finely chopped',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 160)         '2 tablespoons white wine',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 161)         '2 tablespoons unsalted chicken stock',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 162)         '1 pound large shrimp, peeled and deveined',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 163)         '½ teaspoon black pepper',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 164)         '⅞ teaspoon kosher salt, divided',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 165)         '1 cup multicolored cherry tomatoes, halved',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 166)         '6 cups spiralized zucchini (from 2 [10.7-oz.] pkgs.)',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 167)         '4 tablespoons pregrated Parmesan cheese, divided',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 168)         '2 tablespoons chopped fresh flat-leaf parsley'
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 169)       ],
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 170)       directions: `Heat butter and 1 tablespoon of oil in a large skillet over medium-high heat until the butter has melted, a
+pproximately 1 minute. Add the shallot and cook, stirring occasionally, until it softens, around 3 minutes. Stir in the garlic and cook constantly for 1 minute. Pour in the wine a
+nd stock, letting it simmer without disturbance until the liquid reduces by half, about 2 minutes. Add the shrimp, pepper, and 1/2 teaspoon of salt, and cook until the shrimp are 
+just cooked through, approximately 3 minutes, turning them once halfway through the cooking time. Transfer the shrimp to a plate and set aside, keeping the shallot sauce in the sk
+illet.
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 171) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 172) To the skillet, add tomatoes and the remaining 2 tablespoons of oil. Cook over medium-high heat without stirring until the tom
+atoes begin to soften, about 1 minute. Add the zucchini and the remaining 3/8 teaspoon of salt, tossing to combine. Return the shrimp to the skillet and cook, stirring constantly,
+ until the mixture is heated through, about 1 minute. Remove the skillet from the heat, add 2 tablespoons of Parmesan, and toss to combine everything.
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 173) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 174) Divide the mixture evenly among 4 bowls, then sprinkle with parsley and the remaining 2 tablespoons of Parmesan. Serve immedia
+tely.`,
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 175)       calorieCount: 349,
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 176)       fat: '27g',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 177)       carbs: '6g',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 178)       protein: '19g',
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 179)     },
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 180)     
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 220)       
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 221)       {/* Breakfast Section */}
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 222)       <h2>Breakfast</h2>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 223) <div className="meal-list">
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 224)   {meals.filter(meal => meal.name === 'Vegie and Chicken Quiche' || meal.name === 'Oat Waffles with Blueberries and Raspberrie
+s' || meal.name === 'Zucchini Omelet').map((meal, index) => (
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 225)     <div className="meal-item" key={index}>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 226)       <h3>{meal.name}</h3>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 227)       <img src={meal.image} alt={meal.name} />
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 228)       <h4>Ingredients:</h4>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 229)       <ul>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 230)         {meal.ingredients.map((ingredient, i) => (
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 231)           <li key={i}>{ingredient}</li>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 232)         ))}
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 233)       </ul>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 234)       <h4>Directions:</h4>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 235)       <p>{meal.directions}</p>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 236)       <p><strong>Calorie Count:</strong> {meal.calorieCount} calories</p>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 237)       <p><strong>Fat:</strong> {meal.fat}</p>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 238)       <p><strong>Carbs:</strong> {meal.carbs}</p>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 239)       <p><strong>Protein:</strong> {meal.protein}</p>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 240)     </div>
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 241)   ))}
+a5208885 (JPSaia      2023-11-26 22:45:45 -0500 242) </div>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 243) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 244)       {/* Lunch Section */}
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 245)       <h2>Lunch</h2>
+cfe4995f (Ty Anderson 2023-10-28 16:26:03 -0500 246)       <div className="meal-list">
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 247)         {meals.filter(meal => meal.name === 'Veggie & White Bean Salad' || meal.name === 'Chicken Stir-Fry with Bell Pepper an
+d Cashews').map((meal, index) => (
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 266) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 267)       {/* Dinner Section */}
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 268)       <h2>Dinner</h2>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 269)       <div className="meal-list">
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 270)         {meals.filter(meal => meal.name === 'Shrimp Scampi with Noodles' || meal.name === 'Chicken with Marinated Mushrooms an
+d Avocado').map((meal, index) => (
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 271)           <div className="meal-item" key={index}>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 272)             <h3>{meal.name}</h3>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 273)             <img src={meal.image} alt={meal.name} />
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 274)             <h4>Ingredients:</h4>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 275)             <ul>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 276)               {meal.ingredients.map((ingredient, i) => (
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 277)                 <li key={i}>{ingredient}</li>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 278)               ))}
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 279)             </ul>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 280)             <h4>Directions:</h4>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 281)             <p>{meal.directions}</p>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 282)             <p><strong>Calorie Count:</strong> {meal.calorieCount} calories</p>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 283)             <p><strong>Fat:</strong> {meal.fat}</p>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 284)             <p><strong>Carbs:</strong> {meal.carbs}</p>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 285)             <p><strong>Protein:</strong> {meal.protein}</p>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 286)           </div>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 287)         ))}
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 288)       </div>
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 289) 
+4a07f1ef (JPSaia      2023-11-26 22:28:59 -0500 290)       {/* Summary Section */}
+

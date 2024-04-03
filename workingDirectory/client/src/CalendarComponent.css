@@ -1,0 +1,43 @@
+/* CalendarComponent.css */
+
+.CalendarComponent {
+  margin: 20px;
+}
+
+.CalendarComponent .rbc-calendar {
+  height: 500px; /* Adjust the calendar height as needed */
+}
+
+.CalendarComponent .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.CalendarComponent .modal h2 {
+  margin-bottom: 10px;
+}
+
+.CalendarComponent .modal input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.CalendarComponent .modal button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.CalendarComponent .modal button:hover {
+  background-color: #45a049;
+}

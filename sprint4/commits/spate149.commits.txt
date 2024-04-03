@@ -1,0 +1,65 @@
+I am having the same problem I had with the last sprint I don't know why it's saying I didn't commit this code.
+
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  11) const foodCalories = [
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  12)   // Fruits
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  13)   { name: 'Apple (1 medium)', calories: 95 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  14)   { name: 'Banana (1 medium)', calories: 105 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  15)   { name: 'Avocado (1 medium)', calories: 240 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  16)   { name: 'Blueberries (1 cup)', calories: 85 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  17) 
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  18)   // Vegetables
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  19)   { name: 'Broccoli (1 cup, chopped)', calories: 55 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  20)   { name: 'Spinach (1 cup, raw)', calories: 7 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  21)   { name: 'Sweet potato (1 medium, baked)', calories: 100 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  22) 
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  23)   // Proteins
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  24)   { name: 'Chicken breast (3 oz, cooked)', calories: 165 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  25)   { name: 'Salmon (3 oz, cooked)', calories: 155 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  26)   { name: 'Ground beef (3 oz, cooked)', calories: 250 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  27)   { name: 'Tofu (3 oz)', calories: 70 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  28)   { name: 'Ground turkey (3 oz, cooked)', calories: 160 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  29) 
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  30)   // Grains
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  31)   { name: 'White rice (1 cup, cooked)', calories: 205 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  32)   { name: 'Brown rice (1 cup, cooked)', calories: 215 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  33)   { name: 'Whole wheat bread (1 slice)', calories: 70 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  34)   { name: 'Pasta (1 cup, cooked)', calories: 200 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  35)   { name: 'Oatmeal (1 cup, cooked)', calories: 150 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  36)   { name: 'Quinoa (1 cup, cooked)', calories: 220 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  37) 
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  38)   // Dairy
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  39)   { name: 'Greek yogurt (1 cup)', calories: 130 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  40)   { name: 'Cheddar cheese (1 oz)', calories: 110 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  41)   { name: 'Milk (1 cup, whole)', calories: 150 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  42) 
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  43)   // Other Foods
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  44)   { name: 'Almonds (1 oz)', calories: 160 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  45)   { name: 'Lentils (1 cup, cooked)', calories: 230 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  46)   { name: 'Banana smoothie (8 oz)', calories: 160 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  47)   { name: 'Peanut butter (2 tbsp)', calories: 190 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  48)   { name: 'Honey (1 tbsp)', calories: 64 },
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500  49) ];
+
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 134)       <div style={{ textAlign: 'center', padding: '20px' }}>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 135)         <h1>Calorie Counter</h1>
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400 136)         <p>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 137)           This tool will help you on your journey to a healthier lifestyle 
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 138)           by providing a seamless and intuitive way to track your daily caloric intake. 
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 139)           Whether you're striving for weight loss, muscle gain, or simply maintaining a balanced diet, 
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 140)           our calorie counter is designed to be your trusted ally.
+^0e2b685 (Smit Patel        2023-10-11 20:35:42 -0400 141)         </p>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 142)       </div>
+
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 225)       {/* Integrating FoodCaloriesList component */}
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 226)       <div style={{ gridColumn: 'span 2' }}>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 227)           <div style={{ border: "1px white", padding: "10px", marginTop: "20px" }}>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 228)             <h2>Common Foods and Calorie Counts:</h2>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 229)             <ul>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 230)               {foodCalories.map((food, index) => (
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 231)                 <li key={index}>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 232)                   {food.name}: {food.calories} calories
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 233)                 </li>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 234)               ))}
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 235)             </ul>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 236)           </div>
+00000000 (Not Committed Yet 2023-12-01 16:21:43 -0500 237)         </div>

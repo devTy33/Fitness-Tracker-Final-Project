@@ -1,0 +1,237 @@
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 12) import CreateAccount from './createAccount.js'
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 33)         <Route path="/CreateAccount" element={<CreateAccount />} />
+
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500   3) import {Routes, Route, useNavigate} from 'react-router-dom';
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500   4) 
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500   9)   const navigate = useNavigate();
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  18)   const routeChange = (e) => {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  19)     navigate('/CreateAccount')
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  20)   }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  21) 
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  24)     /*
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  39)     */
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  42)     const uname = username;
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  43)     const pw = password;
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  44)     const data={
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  45)       name: uname,
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  46)       password: pw
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  47)     }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  48)     fetch('/login', {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  49)       method: 'POST',
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  50)       headers: {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  51)         'Content-Type': 'application/json',
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  52)       },
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  53)       body: JSON.stringify(data),
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  54)     }).then((response) => response.json()).then((r) => {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  55)       alert(JSON.stringify(r));
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  56)       if(r.message == 'Wrong password'){
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  57)           const submitButton = document.querySelector('.my-button');
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  58)           submitButton.classList.add('shake');
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  59) 
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  60)           // Remove the shake animation after a short delay (adjust as needed)
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  61)           setTimeout(() => {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  62)           submitButton.classList.remove('shake');
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  63)         }, 500);
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  64) 
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  65)         const errorText = document.querySelector('.error-text');
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  66)         errorText.style.opacity = 1; // Make the message visible
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  67)         setTimeout(() => {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  68)           errorText.style.opacity = 0; // Fade out the message
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  69)         }, 2000); // Adjust the fade-out duration as needed
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  70)       }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  71)       if(r.message === 'success'){
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  72)         navigate('/home')
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  73)       }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  74)       
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  75)     }).catch((error) => {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  76)       alert('Error:', error);
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  77)     });
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  81) 
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  84)         <div className="login-title">Login</div>
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 113)         <button onClick={routeChange}>
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 114)           Create Account
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 115)         </button>
+
+
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500   1) import React, { useState } from 'react';
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500   2) import './log.css';
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500   3) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500   4) function CreateAccount() {
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500   5)   const [username, setUsername] = useState('');
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500   6)   const [password, setPassword] = useState('');
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500   7) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500   8)   const handleUsernameChange = (e) => {
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500   9)     setUsername(e.target.value);
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  10)   };
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  11) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  12)   const handlePasswordChange = (e) => {
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  13)     setPassword(e.target.value);
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  14)   };
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  15) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  16) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  17)   const handleSubmit = (e) => {
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  18)     e.preventDefault(); // Prevent the default form submission
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  19)     /*
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  20)     // Apply the shake animation to the submit button
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  21)     const submitButton = document.querySelector('.my-button');
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  22)     submitButton.classList.add('shake');
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  23) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  24)     // Remove the shake animation after a short delay (adjust as needed)
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  25)     setTimeout(() => {
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  26)       submitButton.classList.remove('shake');
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  27)     }, 500);
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  28) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  29)     const errorText = document.querySelector('.error-text');
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  30)     errorText.style.opacity = 1; // Make the message visible
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  31)     setTimeout(() => {
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  32)       errorText.style.opacity = 0; // Fade out the message
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  33)     }, 2000); // Adjust the fade-out duration as needed
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  34)     */
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  35)     const uname = username;
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  36)     const pw = password;
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  37)     const data={
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  38)       name: uname,
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  39)       password: pw
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  40)     }
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  41)     // calls the API succesfuly 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  42)     fetch('/CreateAccount', {
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  43)       method: 'POST',
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  44)       headers: {
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  45)         'Content-Type': 'application/json',
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  46)       },
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  47)       body: JSON.stringify(data),
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  48)     }).then((response) => response.json()).then((r) => {
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  49)       alert(JSON.stringify(r));
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  50)     }).catch((error) => {
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  51)       alert('Error:', error);
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  52)     });
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  53) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  54)     //console.log('Username:', username);
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  55)     //console.log('Password:', password);
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  56) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  57)   };
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  58) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  59)   return (
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  60) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  61)     <div className="container">
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  62)       <div className="box-container">
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  63)         <div className="login-title">Create Account</div>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  64)         {/* <div class="title">TrendStrength Fitness Tracker</div> */}
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  65)         <div className="input-group">
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  66)           <label htmlFor="username">Username</label>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  67)           <input
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  68)             type="text"
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  69)             id="username"
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  70)             className="input"
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  71)             value={username}
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  72)             onChange={handleUsernameChange}
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  73)           />
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  74)         </div>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  75) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  76)         <div className="input-group">
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  77)           <label htmlFor="password">Password</label>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  78)           <input
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  79)             type="password"
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  80)             id="password"
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  81)             className="input"
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  82)             value={password}
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  83)             onChange={handlePasswordChange}
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  84)           />
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  85)         </div>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  86) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  87)         <div class = "title-screen">TrendStrength Fitness Tracker</div>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  88) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  89)         <button type="submit" className="my-button" onClick={handleSubmit}>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  90)           Submit
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  91)         </button>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  92)         
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  93) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  94)         {/*Error message*/}
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  95)         <div className = "error-text">
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  96)           Incorrect Password
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  97)         </div>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  98) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500  99)       </div>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500 100)     </div>
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500 101)   );
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500 102) }
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500 103) 
+2155dab0 (Ty Anderson 2023-11-09 20:11:34 -0500 104) export default CreateAccount;
+
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500   6) app.use(express.json())
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500   7) app.use(express.urlencoded({extended:false}))
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500   8) const mongoose=require("mongoose")
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  11) //const collection=require('./mongodb')
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  31) //mongodb+srv://ty:3Bm88vv9@fta.robftz5.mongodb.net/
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  32) uri = "mongodb+srv://ty:3Bm88vv9@fta.robftz5.mongodb.net/FTA"
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  33) async function connect(){
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  34)     try {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  35)         await mongoose.connect(uri)
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  36)         console.log("connected")
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  38)     catch(error){
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  39)         console.log("shit")
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  40)     }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  41) }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  42)     connect()
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  43)     const LogInSchema = new mongoose.Schema({
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  44)         name:{
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  45)             type:String,
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  46)             required:true
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  47)         },
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  48)         password:{
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  49)             type:String,
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  50)             required:true
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  51)         }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  52)     })
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  53)     const logins = mongoose.model('logins', LogInSchema)
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  54) 
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  55)     async function userExists(username) {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  56)         try {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  57)           const existingUser = await logins.findOne({ name: username });
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  58)           return !!existingUser; // Returns true if user exists, false otherwise
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  59)         } catch (error) {
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  60)           return false; // Handle the error as needed
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  61)         }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  62)       }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  63)       
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  64)       
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  66) app.post('/CreateAccount', async (req,res)=>{
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  67)     try{
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  68)         const data={
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  69)             name: req.body.name,
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  70)             password: req.body.password
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  71)         }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  72)         
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  73)         //const existingUser = await collection.findOne({name: data.name})
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  74)         
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  75)         const doesUserExist = await userExists(data.name);
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  76)         if(doesUserExist){
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  77)             res.send({message: "User already exists" })
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  78)         }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  79)         else{
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  80)         
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  81)             const userdata = await logins.insertMany(data)
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  82)             console.log(userdata)
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  83)             res.status(200).json({ message: 'Account created successfully' })
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  84)         }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  85)         
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  86)     }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  87)     catch{
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  88)         res.status(401).json({ message: 'Login failed' });
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500  89)     }
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 106)     } */
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 107)      
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 109)         const data={
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 110)             name: req.body.name,
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 111)             password: req.body.password
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 112)         }   
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 113)         const check=await logins.findOne({ name: data.name, password: data.password})
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 114) 
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 115)         if(check){
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 116)             //res.render({message : "home" })
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 117)             res.send({message : 'success'})
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 120)             res.send({ message : "Wrong password"})
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 123)     catch(error){
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 124)         console.error('Error during login:', error);
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 125)         res.send({message : "wrong login user"})
+2155dab0 (Ty Anderson    2023-11-09 20:11:34 -0500 128)     //res.render("home")

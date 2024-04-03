@@ -1,0 +1,1 @@
+Alex - PersonalInfo.json to show how the database will look in the json form and a function we will use to update any data the user changes.

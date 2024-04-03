@@ -1,0 +1,679 @@
+I want you to know that Riley had made these files but I had to fix them for them to run in the directory, I don't want 
+  to take credit for them. Because of this, my amount of code will be heavily inflated. 
+
+App.js
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 14) import ArmEx from './arm.js'
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 15) import BackEx from './back.jsx'
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 16) import ChestEx from './chest.jsx';
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 17) import LegEx from './legs.jsx';
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 18) import ShouldEx from './shoulder.jsx';
+00000000 (Not Committed Yet 2023-11-13 13:23:23 -0500 19) import AbEx from './abs.jsx';
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 36)         <Route path="/arms" element={<ArmEx />} />
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 37)         <Route path="/back" element={<BackEx />} />
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 38)         <Route path='/chest' element={<ChestEx />} />
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 39)         <Route path='/legs' element={<LegEx />} />
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 40)         <Route path='/shoulder' element={<ShouldEx />} />
+00000000 (Not Committed Yet 2023-11-13 13:23:23 -0500 41)         <Route path='/abs' element={<AbEx />} />
+
+ImageDisplay.jsx:
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 50)           <a href="/legs">
+e4d14aeb (grandalexbo       2023-11-10 12:54:27 -0500 56)           <a href="/arms">
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 62)           <a href="/chest">
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 68)           <a href="/back">
+00000000 (Not Committed Yet 2023-11-13 13:24:55 -0500 74)           <a href="./abs">
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 80)           <a href="/shoulder">
+
+This is where things get inflated:
+arm.js:
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500   1) import React from 'react';
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500   2)
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500   3) const armExStyles = {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500   4)   body: {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500   5)     fontFamily: 'Arial, sans-serif',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500   6)     backgroundColor: '#f4f4f4',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500   7)     margin: 'auto',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500   8)     padding: 0,
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500   9)     display: 'flex',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  10)     alignItems: 'center',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  11)     justifyContent: 'center',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  12)   },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  13)   app: {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  14)     width: '100%',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  15)     maxWidth: '1200px',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  16)     textAlign: 'center',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  17)   },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  18)   appHeader: {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  19)     backgroundColor: '#333',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  20)     color: '#fff',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  21)     padding: '1rem 0',
+00000000 (Not Committed Yet 2023-11-13 13:29:23 -0500  22)     position: 'auto',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  23)     top: 0,
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  24)     width: '100%',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  25)     zIndex: 100,
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  26)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  27)     display: 'flex',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  28)     justifyContent: 'center',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  29)     alignItems: 'center',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  30)   },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  31)   h1: {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  32)     fontSize: '2rem',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  33)     margin: 'auto',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  34)     textAlign: 'center',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  35)   },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  36)   appMain: {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  37)     padding: '4rem 0',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  38)     margin: '0 auto',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  39)     display: 'flex',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  40)     justifyContent: 'center',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  41)     gap: '2rem',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  42)   },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  43)   ul: {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  44)     listStyle: 'none',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  45)     padding: 0,
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  46)   },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  47)   li: {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  48)     backgroundColor: '#fff',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  49)     border: '2px solid #ddd',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  50)     borderRadius: '10px',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  51)     padding: '1.5rem',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  52)     maxWidth: '600px',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  53)     textAlign: 'right',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  54)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  55)     transition: 'transform 0.2s',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  56)     flex: '0 0 calc(33.33% - 2rem)',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  57)   },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  58)   liHover: {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  59)     transform: 'scale(1.05)',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  60)   },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  61)   exerciseImage: {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  62)     width: '500px',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  63)     height: '500px',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  64)     objectFit: 'cover',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  65)     margin: '0 auto 1rem',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  66)   },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  67)   exerciseName: {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  68)     fontWeight: 'bold',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  69)     marginTop: '1rem',
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  70)   },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  71) };
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  72)
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  73) function ArmEx() {
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  74)   const chestExercises = [
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  75)     { name: 'Bicep Curls', image: 'bicep-curl.jpg' },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  76)     { name: 'Hammer Curls', image: 'hammer-curls.jpg' },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  77)     { name: 'Preacher Curls', image: 'preacher-curls.jpg' },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  78)     { name: 'Tricep Pushdown', image: 'tricep-pushdowns.jpg' },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  79)     { name: 'Skull Crushers', image: 'skull-crushers.jpg' },
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  80)     { name: 'Overhead Tricep Extension', image: 'overhead-tricep.jpg' }, 
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  81)   ];
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  82)
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  83)   return (
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  84)     <div style={armExStyles.body}>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  85)       <div style={armExStyles.app}>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  86)         <header style={armExStyles.appHeader}>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  87)           <h1 style={armExStyles.h1}>Arm Exercises</h1>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  88)         </header>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  89)         <main style={armExStyles.appMain}>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  90)           <ul style={armExStyles.ul}>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  91)             {chestExercises.map((exercise, index) => (
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  92)               <li key={index} style={armExStyles.li}>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  93)                 <img
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  94)                   src={`./${exercise.image}`}
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  95)                   alt={exercise.name}
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  96)                   style={armExStyles.exerciseImage}
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  97)                 />
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  98)                 {exercise.name}
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500  99)               </li>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 100)             ))}
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 101)           </ul>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 102)         </main>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 103)       </div>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 104)     </div>
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 105)   );
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 106) }
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 107)
+67d42636 (grandalexbo       2023-11-13 08:06:14 -0500 108) export default ArmEx;
+
+abs.jsx:
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500   1) import React from 'react';
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500   2)
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500   3) const appStyles = {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500   4)   body: {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500   5)     fontFamily: 'Arial, sans-serif',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500   6)     backgroundColor: '#f4f4f4',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500   7)     margin: 0,
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500   8)     padding: 0,
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500   9)     display: 'flex',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  10)     alignItems: 'center',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  11)     justifyContent: 'center',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  12)     minHeight: '100vh', // Ensure the content takes at least the full height of the viewport
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  13)   },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  14)   app: {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  15)     width: '100%',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  16)     maxWidth: '1200px',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  17)     textAlign: 'center',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  18)   },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  19)   appHeader: {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  20)     backgroundColor: '#333',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  21)     color: '#fff',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  22)     padding: '1rem 0',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  23)     position: 'auto',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  24)     top: 0,
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  25)     width: '100%',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  26)     zIndex: 100,
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  27)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  28)   },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  29)   h1: {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  30)     fontSize: '2rem',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  31)     margin: '0',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  32)   },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  33)   appMain: {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  34)     padding: '4rem 0',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  35)     margin: '0 auto',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  36)     display: 'flex',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  37)     flexDirection: 'column',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  38)     alignItems: 'center', // Center content horizontally
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  39)     justifyContent: 'center', // Center content vertically
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  40)     gap: '2rem',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  41)   },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  42)   ul: {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  43)     listStyle: 'none',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  44)     padding: 0,
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  45)   },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  46)   li: {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  47)     backgroundColor: '#fff',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  48)     border: '2px solid #ddd',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  49)     borderRadius: '10px',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  50)     padding: '1.5rem',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  51)     maxWidth: '600px',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  52)     textAlign: 'right',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  53)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  54)     transition: 'transform 0.2s',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  55)     flex: '0 0 calc(33.33% - 2rem)',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  56)   },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  57)   liHover: {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  58)     transform: 'scale(1.05)',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  59)   },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  60)   exerciseImage: {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  61)     width: '500px',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  62)     height: '500px',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  63)     objectFit: 'cover',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  64)     margin: '0 auto 1rem',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  65)   },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  66)   exerciseName: {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  67)     fontWeight: 'bold',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  68)     marginTop: '1rem',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  69)   },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  70) };
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  71)
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  72) function App() {
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  73)   const abExercises = [
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  74)     { name: 'Ab Crunch', image: 'ac.jpg' },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  75)     { name: 'Ab Wheel Rollout', image: 'awr.jpg' },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  76)     { name: 'Seated Crunch', image: 'sc.jpg' },
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  77)   ];
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  78)
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  79)   return (
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  80)     <div style={appStyles.body}>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  81)       <div style={appStyles.app}>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  82)         <header style={appStyles.appHeader}>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  83)           <h1 style={appStyles.h1}>Ab Exercises</h1>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  84)         </header>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  85)         <main style={appStyles.appMain}>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  86)           <ul style={appStyles.ul}>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  87)             {abExercises.map((exercise, index) => (
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  88)               <li key={index} style={appStyles.li}>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  89)                 <img
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  90)                   src={`./${exercise.image}`}
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  91)                   alt={exercise.name}
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  92)                   style={appStyles.exerciseImage}
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  93)                 />
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  94)                 {exercise.name}
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  95)               </li>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  96)             ))}
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  97)           </ul>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  98)         </main>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  99)       </div>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500 100)     </div>
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500 101)   );
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500 102) }
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500 103)
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500 104) export default App;
+
+chest.jsx:
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   1) import React from 'react';
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   2)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   3) const chestExStyles = {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   4)   body: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   5)     fontFamily: 'Arial, sans-serif',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   6)     backgroundColor: '#f4f4f4',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   7)     margin: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   8)     padding: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   9)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  10)     alignItems: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  11)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  12)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  13)   app: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  14)     width: '100%',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  15)     maxWidth: '1200px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  16)     textAlign: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  17)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  18)   appHeader: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  19)     backgroundColor: '#333',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  20)     color: '#fff',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  21)     padding: '1rem 0',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  22)     position: 'auto',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  23)     top: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  24)     width: '100%',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  25)     zIndex: 100,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  26)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  27)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  28)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  29)     alignItems: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  30)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  31)   h1: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  32)     fontSize: '2rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  33)     margin: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  34)     textAlign: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  35)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  36)   appMain: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  37)     padding: '4rem 0',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  38)     margin: '0 auto',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  39)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  40)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  41)     gap: '2rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  42)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  43)   ul: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  44)     listStyle: 'none',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  45)     padding: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  46)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  47)   li: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  48)     backgroundColor: '#fff',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  49)     border: '2px solid #ddd',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  50)     borderRadius: '10px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  51)     padding: '1.5rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  52)     maxWidth: '600px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  53)     textAlign: 'right',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  54)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  55)     transition: 'transform 0.2s',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  56)     flex: '0 0 calc(33.33% - 2rem)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  57)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  58)   liHover: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  59)     transform: 'scale(1.05)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  60)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  61)   exerciseImage: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  62)     width: '500px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  63)     height: '500px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  64)     objectFit: 'cover',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  65)     margin: '0 auto 1rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  66)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  67)   exerciseName: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  68)     fontWeight: 'bold',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  69)     marginTop: '1rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  70)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  71) };
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  72)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  73) function ChestEx() {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  74)   const chestExercises = [
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  75)     { name: 'Bench Press', image: 'bench-press.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  76)     { name: 'Incline Bench Press', image: 'incline-bench-press.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  77)     { name: 'Push Up', image: 'push-up.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  78)     { name: 'Dumbbell Flyes', image: 'dumbbell-flyes.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  79)     { name: 'Chest Dips', image: 'chest-dips.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  80)     { name: 'Cable Flys', image: 'cable-flyes.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  81)   ];
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  82)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  83)   return (
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  84)     <div style={chestExStyles.body}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  85)       <div style={chestExStyles.app}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  86)         <header style={chestExStyles.appHeader}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  87)           <h1 style={chestExStyles.h1}>Chest Exercises</h1>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  88)         </header>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  89)         <main style={chestExStyles.appMain}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  90)           <ul style={chestExStyles.ul}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  91)             {chestExercises.map((exercise, index) => (
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  92)               <li key={index} style={chestExStyles.li}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  93)                 <img
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  94)                   src={`./${exercise.image}`}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  95)                   alt={exercise.name}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  96)                   style={chestExStyles.exerciseImage}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  97)                 />
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  98)                 {exercise.name}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  99)               </li>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 100)             ))}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 101)           </ul>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 102)         </main>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 103)       </div>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 104)     </div>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 105)   );
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 106) }
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 107)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 108) export default ChestEx;
+
+back.jsx:
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   1) import React from 'react';
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   2)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   3) const backExStyles = {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   4)   body: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   5)     fontFamily: 'Arial, sans-serif',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   6)     backgroundColor: '#f4f4f4',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   7)     margin: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   8)     padding: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   9)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  10)     alignItems: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  11)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  12)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  13)   app: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  14)     width: '100%',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  15)     maxWidth: '1200px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  16)     textAlign: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  17)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  18)   appHeader: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  19)     backgroundColor: '#333',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  20)     color: '#fff',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  21)     padding: '1rem 0',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  22)     position: 'auto',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  23)     top: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  24)     width: '100%',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  25)     zIndex: 100,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  26)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  27)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  28)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  29)     alignItems: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  30)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  31)   h1: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  32)     fontSize: '2rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  33)     margin: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  34)     textAlign: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  35)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  36)   appMain: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  37)     padding: '4rem 0',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  38)     margin: '0 auto',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  39)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  40)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  41)     gap: '2rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  42)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  43)   ul: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  44)     listStyle: 'none',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  45)     padding: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  46)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  47)   li: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  48)     backgroundColor: '#fff',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  49)     border: '2px solid #ddd',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  50)     borderRadius: '10px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  51)     padding: '1.5rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  52)     maxWidth: '600px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  53)     textAlign: 'right',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  54)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  55)     transition: 'transform 0.2s',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  56)     flex: '0 0 calc(33.33% - 2rem)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  57)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  58)   liHover: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  59)     transform: 'scale(1.05)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  60)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  61)   exerciseImage: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  62)     width: '500px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  63)     height: '500px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  64)     objectFit: 'cover',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  65)     margin: '0 auto 1rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  66)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  67)   exerciseName: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  68)     fontWeight: 'bold',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  69)     marginTop: '1rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  70)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  71) };
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  72)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  73) function BackEx() {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  74)   const backExercises = [
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  75)     { name: 'Pull-Ups', image: 'pull-ups.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  76)     { name: 'Lat Pulldowns', image: 'lat-pulldown.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  77)     { name: 'Bent Over Rows', image: 'bent-over.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  78)     { name: 'Cable Rows', image: 'cable-row.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  79)     { name: 'Deadlifts', image: 'deadlifts.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  80)     { name: 'T-Bar Rows', image: 't-bar.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  81)   ];
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  82)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  83)   return (
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  84)     <div style={backExStyles.body}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  85)       <div style={backExStyles.app}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  86)         <header style={backExStyles.appHeader}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  87)           <h1 style={backExStyles.h1}>Back Exercises</h1>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  88)         </header>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  89)         <main style={backExStyles.appMain}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  90)           <ul style={backExStyles.ul}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  91)             {backExercises.map((exercise, index) => (
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  92)               <li key={index} style={backExStyles.li}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  93)                 <img
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  94)                   src={`./${exercise.image}`}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  95)                   alt={exercise.name}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  96)                   style={backExStyles.exerciseImage}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  97)                 />
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  98)                 {exercise.name}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  99)               </li>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 100)             ))}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 101)           </ul>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 102)         </main>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 103)       </div>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 104)     </div>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 105)   );
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 106) }
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 107)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 108) export default BackEx;
+
+shoulder.jsx:
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   1) import React from 'react';
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   2)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   3) const shouldExStyles = {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   4)   body: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   5)     fontFamily: 'Arial, sans-serif',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   6)     backgroundColor: '#f4f4f4',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   7)     margin: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   8)     padding: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   9)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  10)     alignItems: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  11)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  12)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  13)   app: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  14)     width: '100%',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  15)     maxWidth: '1200px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  16)     textAlign: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  17)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  18)   appHeader: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  19)     backgroundColor: '#333',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  20)     color: '#fff',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  21)     padding: '1rem 0',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  22)     position: 'auto',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  23)     top: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  24)     width: '100%',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  25)     zIndex: 100,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  26)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  27)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  28)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  29)     alignItems: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  30)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  31)   h1: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  32)     fontSize: '2rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  33)     margin: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  34)     textAlign: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  35)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  36)   appMain: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  37)     padding: '4rem 0',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  38)     margin: '0 auto',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  39)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  40)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  41)     gap: '2rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  42)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  43)   ul: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  44)     listStyle: 'none',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  45)     padding: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  46)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  47)   li: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  48)     backgroundColor: '#fff',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  49)     border: '2px solid #ddd',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  50)     borderRadius: '10px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  51)     padding: '1.5rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  52)     maxWidth: '600px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  53)     textAlign: 'right',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  54)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  55)     transition: 'transform 0.2s',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  56)     flex: '0 0 calc(33.33% - 2rem)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  57)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  58)   liHover: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  59)     transform: 'scale(1.05)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  60)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  61)   exerciseImage: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  62)     width: '500px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  63)     height: '500px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  64)     objectFit: 'cover',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  65)     margin: '0 auto 1rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  66)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  67)   exerciseName: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  68)     fontWeight: 'bold',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  69)     marginTop: '1rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  70)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  71) };
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  72)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  73) function ShouldEx() {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  74)   const shouldExercises = [
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  75)     { name: 'Lateral Raise', image: 'lat.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  76)     { name: 'Shoulder Press', image: 'press.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  77)     { name: 'Face Pulls', image: 'face.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  78)     { name: 'Rear Delt Flyes', image: 'rear.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  79)     { name: 'Shrugs', image: 'shrug.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  80)   ];
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  81)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  82)   return (
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  83)     <div style={shouldExStyles.body}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  84)       <div style={shouldExStyles.app}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  85)         <header style={shouldExStyles.appHeader}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  86)           <h1 style={shouldExStyles.h1}>Shoulder Exercises</h1>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  87)         </header>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  88)         <main style={shouldExStyles.appMain}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  89)           <ul style={shouldExStyles.ul}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  90)             {shouldExercises.map((exercise, index) => (
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  91)               <li key={index} style={shouldExStyles.li}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  92)                 <img
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  93)                   src={`./${exercise.image}`}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  94)                   alt={exercise.name}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  95)                   style={shouldExStyles.exerciseImage}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  96)                 />
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  97)                 {exercise.name}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  98)               </li>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  99)             ))}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 100)           </ul>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 101)         </main>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 102)       </div>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 103)     </div>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 104)   );
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 105) }
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 106)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 107) export default ShouldEx;
+
+legs.jsx:
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   1) import React from 'react';
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   2)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   3) const legExStyles = {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   4)   body: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   5)     fontFamily: 'Arial, sans-serif',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   6)     backgroundColor: '#f4f4f4',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   7)     margin: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   8)     padding: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500   9)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  10)     alignItems: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  11)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  12)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  13)   app: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  14)     width: '100%',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  15)     maxWidth: '1200px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  16)     textAlign: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  17)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  18)   appHeader: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  19)     backgroundColor: '#333',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  20)     color: '#fff',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  21)     padding: '1rem 0',
+8decae99 (grandalexbo 2023-11-13 13:31:50 -0500  22)     position: 'auto',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  23)     top: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  24)     width: '100%',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  25)     zIndex: 100,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  26)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  27)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  28)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  29)     alignItems: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  30)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  31)   h1: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  32)     fontSize: '2rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  33)     margin: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  34)     textAlign: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  35)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  36)   appMain: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  37)     padding: '4rem 0',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  38)     margin: '0 auto',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  39)     display: 'flex',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  40)     justifyContent: 'center',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  41)     gap: '2rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  42)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  43)   ul: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  44)     listStyle: 'none',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  45)     padding: 0,
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  46)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  47)   li: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  48)     backgroundColor: '#fff',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  49)     border: '2px solid #ddd',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  50)     borderRadius: '10px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  51)     padding: '1.5rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  52)     maxWidth: '600px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  53)     textAlign: 'right',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  54)     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  55)     transition: 'transform 0.2s',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  56)     flex: '0 0 calc(33.33% - 2rem)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  57)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  58)   liHover: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  59)     transform: 'scale(1.05)',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  60)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  61)   exerciseImage: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  62)     width: '500px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  63)     height: '500px',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  64)     objectFit: 'cover',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  65)     margin: '0 auto 1rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  66)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  67)   exerciseName: {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  68)     fontWeight: 'bold',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  69)     marginTop: '1rem',
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  70)   },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  71) };
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  72)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  73) function LegEx() {
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  74)   const legExercises = [
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  75)     { name: 'Squats', image: 'squat.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  76)     { name: 'Leg Press', image: 'legp.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  77)     { name: 'Hamstring Curls', image: 'hs.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  78)     { name: 'Leg Extensions', image: 'le.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  79)     { name: 'Calf Raises', image: 'cr.jpg' },
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  80)   ];
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  81)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  82)   return (
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  83)     <div style={legExStyles.body}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  84)       <div style={legExStyles.app}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  85)         <header style={legExStyles.appHeader}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  86)           <h1 style={legExStyles.h1}>Leg Exercises</h1>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  87)         </header>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  88)         <main style={legExStyles.appMain}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  89)           <ul style={legExStyles.ul}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  90)             {legExercises.map((exercise, index) => (
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  91)               <li key={index} style={legExStyles.li}>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  92)                 <img
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  93)                   src={`./${exercise.image}`}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  94)                   alt={exercise.name}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  95)                   style={legExStyles.exerciseImage}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  96)                 />
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  97)                 {exercise.name}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  98)               </li>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500  99)             ))}
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 100)           </ul>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 101)         </main>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 102)       </div>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 103)     </div>
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 104)   );
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 105) }
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 106)
+67d42636 (grandalexbo 2023-11-13 08:06:14 -0500 107) export default LegEx;

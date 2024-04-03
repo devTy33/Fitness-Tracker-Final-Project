@@ -1,0 +1,138 @@
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 23)         <Route path="/CreateAccount" element={<CreateAccount />} />     
+
+
+
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500   3) import { v4 as uuidv4 } from 'uuid';
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500   5) import './CalendarComponent.css';
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500   6) import './CalendarOverride.css';
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  19)   const [selectedEvent, setSelectedEvent] = useState(null);
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  20)   const [mode, setMode] = useState(null);
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  24)       const username = UserProfile.getName();
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  26) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  29)         const eventsData = data.map((event) => ({
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  35) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  44) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  49)   const openModal = (slotInfo, existingEvent) => {
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  54)       title: existingEvent ? existingEvent.title : '',
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  56)     setMode(existingEvent ? 'edit' : 'add');
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  59)   useEffect(() => {
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  60)     // Remove the console.log statement
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  61)   }, [isModalOpen, mode]);
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  62) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  66)     setSelectedEvent(null);
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  67)     setMode(null);
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  69) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  79) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  82)       const eventWithId = { ...newEvent, user: UserProfile.getName(), id: uuidv4() };
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  83) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  85)         .then((response) => {
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  86)           if (response.ok) {
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  87)             setEvents([...events, eventWithId]);
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  88) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  89)             // Log the event id to the console
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  90)             console.log('Added event with id:', eventWithId.id);
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  91)           } else {
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  92)             console.error('Failed to save event to the server');
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  93)           }
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  94)         })
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  95)         .catch((error) => {
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  96)           console.error('Error while saving event:', error);
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  97)         });
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  99) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 104)   const handleEventDelete = () => {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 105)     if (selectedEvent) {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 106)       setEvents(events.filter((event) => event.id !== selectedEvent.id));
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 107)     }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 108)     closeModal();
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 109)   };
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 110) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 111)   const handleEventSelect = (event) => {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 112)     setSelectedEvent(event);
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 113)     openModal({ start: event.start, end: event.end }, event);
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 114) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 115)     // Log the selected event's id to the console
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 116)     console.log('Selected event with id:', event.id);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 117)   };
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 118) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 120)     <div className={`CalendarComponent ${mode === 'add' || mode === 'edit' ? 'adding-editing-mode' : ''}`}>
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 130)         onSelectEvent={handleEventSelect}
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 131)         components={{
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 132)           timeIndicator: (props) =>
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 133)             !isModalOpen && <div {...props} className="rbc-current-time-indicator" />,
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 134)         }}
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 142)         {selectedEvent ? <h2>Edit Workout</h2> : <h2>Add Workout</h2>}
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 145)           value={newEvent.title === undefined ? '' : newEvent.title}
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 146)           onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value === '' ? undefined : e.target.value })}
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 148)         <button onClick={handleEventSave}>
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 149)           {selectedEvent ? 'Update' : 'Save'}
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 150)         </button>
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 151)         {selectedEvent && (
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 152)           <button onClick={handleEventDelete}>Delete</button>
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 153)         )}
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 159) export default CalendarComponent;
+
+
+
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  1) /* CalendarOverride.css */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  2) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  3) .rbc-current-time-indicator {
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  4)   background-color: rgb(1, 1, 4) !important;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  5) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  6) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  7) /* Hide the indicator in adding or editing mode */
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  8) .CalendarComponent.adding-editing-mode .rbc-current-time-indicator {
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  9)   display: none !important;
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 10) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 11) 
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 12) /* Additional styling for hover effect */
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 13) .CalendarComponent.adding-editing-mode .rbc-current-time-indicator:hover::before {
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 14)   content: none;
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 15) }
+
+
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  21)     background-color: #000000;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  30) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  31)   /* Shaking animation */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  32) @keyframes shake {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  33)   0%, 100% {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  34)       transform: translateX(0);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  35)   }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  36)   10%, 30%, 50%, 70%, 90% {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  37)       transform: translateX(-10px);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  38)   }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  39)   20%, 40%, 60%, 80% {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  40)       transform: translateX(10px);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  41)   }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  42) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  43) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  44) .create-account-button {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  45)   width: 100%;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  46)   height: 30px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  47)   background-color: #3498db; /* Change this color to your desired color */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  48)   color: white;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  49)   border: none;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  50)   border-radius: 4px;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  51)   font-weight: bold;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  52)   cursor: pointer;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  53)   transition: background-color 0.3s ease;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  54)   outline: none;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  55) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  56) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  57) .create-account-button:hover {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  58)   background-color: #2980b9; /* Change this color to the hover color you desire */
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  59) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  60) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  61) .create-account-button:active {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  62)   transform: translateY(2px);
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  63) }
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  64) 
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  65) .shake {
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  66)   animation: shake 0.5s;
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500  67) }
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 159)     background-color: #ffffff; /* Set your desired background color */
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500 169)     background-color: #246cb5; /* Set your desired background color */
+
+
+a1a9e8d7 (elielieli1234 2023-12-02 15:59:07 -0500  5)   "proxy": "http://localhost:6000",
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 10)     "moment": "^2.29.4",
+afb39640 (elielieli1234 2023-11-13 22:30:12 -0500 12)     "react-big-calendar": "^1.8.5",

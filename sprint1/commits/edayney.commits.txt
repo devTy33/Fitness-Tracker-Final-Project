@@ -1,0 +1,1 @@
+Eli Dayney - Commited the front end login website. This includes the files App.js, App.css, and index.html in the src folder. There was some other code that was preincluded with the react setup but the code of that which was in my commited src folder was overwritten by Smit's.
